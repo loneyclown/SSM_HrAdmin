@@ -1,0 +1,108 @@
+/*-- 页面初始化 --*/
+
+@charset "utf-8";
+
+/* CSS Document */
+
+html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend {
+	cursor: default;
+}
+
+
+/*让这些的标签内外边距都是0*/
+
+fieldset,
+img {
+	border: none;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+input {
+	padding-top: 0;
+	padding-bottom: 0;
+	font-family: "SimSun", "宋体";
+}
+
+select,
+input {
+	vertical-align: middle;
+	/* */
+}
+
+select,
+input,
+textarea {
+	font-size: 12px;
+	margin: 0;
+}
+
+textarea {
+	resize: none;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+img {
+	vertical-align: middle;
+	border: 0 none;
+}
+
+body {
+	color: #515151;
+	font: 14px '微软雅黑';
+	/* 设置全局的文字 颜色 字号 字体 */
+}
+
+a {
+	color: #515151;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: inherit;
+}
+
+
+/* 常用代码 */
+
+.clearfix:after {
+	content: "";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+.f_l {
+	float: left;
+}
+
+.f_r {
+	float: right;
+}
+
+i,
+em {
+	font-style: normal;
+}
+
+.w1140 {
+	width: 1140px;
+	margin: 0 auto;
+}
+

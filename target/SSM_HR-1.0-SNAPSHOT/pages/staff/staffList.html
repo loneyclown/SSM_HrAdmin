@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../plugins/layui/css/layui.css">
+
+  <style>
+    .table-box {
+      box-sizing: border-box;
+      padding: 40px;
+      background: #fff;
+    }
+    .layui-table-view {
+      box-sizing: border-box;
+      border: none;
+    }
+    .layui-table-header {
+      border: none;
+      background: #fff;
+    }
+    .layui-table-view .layui-table th, .layui-table-view .layui-table td {
+      box-sizing: border-box;
+      border-top: 0;
+      border-bottom-width: 1px;
+      font-family: "ubuntu-medium", sans-serif;
+      font-weight: bold;
+      vertical-align: bottom;
+      border: none;
+      border-bottom: 2px solid #ebedf2;
+      font-size: 0.875rem;
+      line-height: 1;
+      background: #fff;
+    }
+    .layui-table-view .layui-table td {
+      font-weight: normal;
+      border-bottom-width: 1px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="table-box">
+    <table id="table"></table>
+  </div>
+</body>
+<script src="../../plugins/layui/layui.js"></script>
+<script>
+  layui.use(["layer", "table"], function () {
+    var table = layui.table;
+
+    table.render({
+      elem: '#table',
+      height: 312,
+      url: 'http://localhost:8080/user/listUserInfo?curr=1&limit=5', //数据接口
+      page: true, //开启分页
+      response: {
+        statusName: "is",
+        statusCode: true,
+        // msgName
+        countName: "total",
+        dataName: "data"
+      },
+      cols: [
+        [ //表头
+          {
+            field: 'id',
+            title: 'ID',
+            width: 80,
+          }, {
+            field: 'staffName',
+            title: '员工姓名',
+            width: 120
+          }, {
+            field: 'staffSex',
+            title: '性别',
+            width: 80
+          }, {
+            field: 'staffAge',
+            title: '年龄',
+            width: 80
+          }, {
+            field: 'phone',
+            title: '联系电话',
+            width: 150
+          }, {
+            field: 'entryTime',
+            title: '入职时间',
+            width: 200,
+          }, {
+            field: 'departmentId',
+            title: '所在部门',
+            width: 200
+          }, {
+            field: 'jobId',
+            title: '所处职位',
+            width: 200
+          }, {
+            field: 'option',
+            title: '操作',
+          }
+        ]
+      ],
+      // data: [
+      //   {
+      //     id: 1,
+      //     staffName: "1",
+      //     staffSex: "1",
+      //     staffAge: "1",
+      //     phone: "1",
+      //     entryTime: "1",
+      //     departmentId: "1",
+      //     jobId: "1"
+      //   }
+      // ]
+    });
+  });
+</script>
+
+</html>
