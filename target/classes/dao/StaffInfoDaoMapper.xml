@@ -11,24 +11,18 @@
         <result column="staffSex" property="staffSex"/>
         <result column="phone" property="phone"/>
         <result column="entryTime" property="entryTime"/>
-        <result column="departmentId" property="departmentId"/>
         <result column="jobId" property="jobId"/>
         <result column="isTrain" property="isTrain"/>
         <result column="subjectId" property="subjectId"/>
         <result column="staffType" property="staffType"/>
         <result column="passWord" property="passWord"/>
-        <collection property="departments" ofType="entity.Department">
-            <id column="id" property="id"/>
-            <result column="departmentName" property="departmentName"/>
-            <result column="jobName" property="jobName"/>
-        </collection>
-
+        <collection property="departments" column="departmentId" javaType="ArrayList" ofType="entity.Department" resultMap="department"/>
     </resultMap>
     <resultMap id="department" type="entity.Department">
-        <id column="id" property="id"/>
+        <id column="departmentId" property="id"/>
         <result column="departmentName" property="departmentName"/>
         <collection property="jobTitles" ofType="entity.JobTitle">
-            <id column="id" property="id"/>
+            <id column="jobtitleId" property="id"/>
             <result column="jobName" property="jobName"/>
             <result column="departmentId" property="departmentId"/>
         </collection>
@@ -38,19 +32,33 @@
         SELECT staffName FROM staffinfo WHERE staffName=#{staffName} AND passWord=#{passWord}
     </select>
 
-    <select id="selectStaffInfoById2" resultMap="staffInfo">
+    <select id="selectStaffInfoById" resultMap="staffInfo">
         SELECT
-            staffName,
-            departmentName,
-            jobName
+            *, staffinfo.id AS staffinfoId,
+            jobtitle.id AS jobtitleId,
+            department.id AS departmentId
         FROM
-            staffinfo,
-            department,
-            jobtitle
-        WHERE
-            staffinfo.id = #{id}
-        AND department.id = staffinfo.departmentId
-        AND jobtitle.id = staffinfo.jobId
+            staffinfo
+        LEFT JOIN jobtitle ON jobtitle.id = staffinfo.jobId
+        LEFT JOIN department ON department.id = jobtitle.departmentId
+        WHERE staffinfo.id = #{id}
+    </select>
+
+    <select id="selectAllStaffInfoByCurr" parameterType="map" resultMap="staffInfo">
+        SELECT
+            *,
+            staffinfo.id AS staffinfoId,
+            jobtitle.id AS jobtitleId,
+            department.id AS departmentId
+        FROM
+            staffinfo
+        LEFT JOIN jobtitle ON jobtitle.id = staffinfo.jobId
+        LEFT JOIN department ON department.id = jobtitle.departmentId
+        LIMIT #{start},#{size}
+    </select>
+
+    <select id="selectCountStaffInfoALL" resultType="Integer">
+        SELECT count(*) AS total from staffinfo
     </select>
 
 </mapper>

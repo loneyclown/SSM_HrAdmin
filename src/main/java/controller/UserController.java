@@ -33,24 +33,24 @@ public class UserController {
 //    }
 
 
-    @RequestMapping("/userVerify")
-    public Map<String, Object> userVerify(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        String staffName = request.getParameter("staffName");
-        String passWord = request.getParameter("passWord");
-        Map<String, Object> map = new HashMap<String, Object>();
-        User u = this.userService.userVerify(staffName, passWord);
-        if(u == null) {
-            map.put("is", false);
-            map.put("msg", "用户名或者密码错误！");
-        } else {
-            map.put("is", true);
-            map.put("msg", "登录成功！");
-            map.put("staffName", u.getStaffName());
-        }
-        return map;
-    }
+//    @RequestMapping("/userVerify")
+//    public Map<String, Object> userVerify(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//        request.setCharacterEncoding("UTF-8");
+//        response.setCharacterEncoding("UTF-8");
+//        String staffName = request.getParameter("staffName");
+//        String passWord = request.getParameter("passWord");
+//        Map<String, Object> map = new HashMap<String, Object>();
+//        User u = this.userService.userVerify(staffName, passWord);
+//        if(u == null) {
+//            map.put("is", false);
+//            map.put("msg", "用户名或者密码错误！");
+//        } else {
+//            map.put("is", true);
+//            map.put("msg", "登录成功！");
+//            map.put("staffName", u.getStaffName());
+//        }
+//        return map;
+//    }
 
     @RequestMapping("/getUserInfoById")
     public Map<String, Object> getUserInfoById(HttpServletRequest request, HttpServletResponse response) throws IOException {

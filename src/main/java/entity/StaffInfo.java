@@ -13,10 +13,9 @@ public class StaffInfo implements Serializable {
     private Integer staffSex;
     private String phone;
     private String entryTime;
-    private Integer departmentId;
     private Integer jobId;
     private Integer isTrain;
-    private Integer subjectId;
+    private String subjectId;
     private Integer staffType;
     private String passWord;
 

@@ -8,9 +8,10 @@ public interface IStaffInfoDao {
 //    List<User> selectUser(Integer id);
 
     StaffInfo login(Map<String, String> map);
-//    StaffInfo selectStaffInfoById(Integer id);
+    StaffInfo selectStaffInfoById(Integer id);
 
-    StaffInfo selectStaffInfoById2(Integer id);
+    List<StaffInfo> selectAllStaffInfoByCurr(Map<String, Object> map);
+    Integer selectCountStaffInfoALL();
 
 
 //    User selectUserById(Integer id);

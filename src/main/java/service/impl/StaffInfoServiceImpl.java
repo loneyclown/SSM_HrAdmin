@@ -28,32 +28,27 @@ public class StaffInfoServiceImpl implements IStaffInfoService {
         return u;
     }
 
-//    public StaffInfo getStaffInfoById(Integer id) {
-//        return this.staffInfoDao.selectStaffInfoById(id);
-//    }
-
-    public StaffInfo getStaffInfoById2(Integer id) {
-        StaffInfo s = this.staffInfoDao.selectStaffInfoById2(id);
-        System.out.println(s);
-        return s;
+//    @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
+    public StaffInfo getStaffInfoById(Integer id) {
+        return this.staffInfoDao.selectStaffInfoById(id);
     }
 
-//    public Map<String, Object> listUserInfo(Integer curr, Integer limit) {
-//        Map<String, Object> map = new HashMap<String, Object>();
-//        Map<String, Object> req = new HashMap<String, Object>();
-//        Integer start = curr==1?0:curr*limit-limit;
-//        Integer size = limit;
-//        req.put("start", start);
-//        req.put("size", size);
-//        List<User> list = this.userDao.selectAllUserByCurr(req);
-//        Integer total = this.userDao.selectCountUserALL();
-//        if(list != null) {
-//            map.put("count",list.size() );
-//            map.put("list", list);
-//        }
-//        map.put("total",total );
-//        return map;
-//    }
+    public Map<String, Object> listStaffInfoByCurr(Integer curr, Integer limit) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> req = new HashMap<String, Object>();
+        Integer start = curr==1?0:curr*limit-limit;
+        Integer size = limit;
+        req.put("start", start);
+        req.put("size", size);
+        List<StaffInfo> list = this.staffInfoDao.selectAllStaffInfoByCurr(req);
+        Integer total = this.staffInfoDao.selectCountStaffInfoALL();
+        if(list != null) {
+            map.put("count",list.size() );
+            map.put("list", list);
+        }
+        map.put("total",total );
+        return map;
+    }
 
 //    public int addUser(User user) {
 //        return this.userDao.insertUser(user);
