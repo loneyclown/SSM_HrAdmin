@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "f62443a8-362f-4e2f-9892-6d897b19a9fc",
+		"name": "人力资源管理系统接口",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "登录",
+			"item": [
+				{
+					"name": "管理员登录后台",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/staffInfo/login?staffName=clown&passWord=123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"staffInfo",
+								"login"
+							],
+							"query": [
+								{
+									"key": "staffName",
+									"value": "clown",
+									"description": "员工姓名"
+								},
+								{
+									"key": "passWord",
+									"value": "123",
+									"description": "管理员登录密码"
+								}
+							]
+						},
+						"description": "啊啊啊啊啊啊啊啊啊"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "员工信息",
+			"item": [
+				{
+					"name": "根据ID获取员工信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/staffInfo/getStaffInfoById2?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"staffInfo",
+								"getStaffInfoById2"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页获取员工信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/listUserInfo?curr=1&limit=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"listUserInfo"
+							],
+							"query": [
+								{
+									"key": "curr",
+									"value": "1",
+									"description": "页码数"
+								},
+								{
+									"key": "limit",
+									"value": "5",
+									"description": "每页显示数"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加员工",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/addUser?staffName=夏雨荷&staffAge=23&staffSex=2&phone=17722222222&entryTime=2018-11-28&departmentId&jobId&isTrain&subjectId&staffType&passWord",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"addUser"
+							],
+							"query": [
+								{
+									"key": "staffName",
+									"value": "夏雨荷",
+									"description": "员工姓名"
+								},
+								{
+									"key": "staffAge",
+									"value": "23",
+									"description": "员工年龄"
+								},
+								{
+									"key": "staffSex",
+									"value": "2",
+									"description": "员工性别 0-男 1-女"
+								},
+								{
+									"key": "phone",
+									"value": "17722222222",
+									"description": "员工手机号"
+								},
+								{
+									"key": "entryTime",
+									"value": "2018-11-28",
+									"description": "入职时间"
+								},
+								{
+									"key": "departmentId",
+									"value": null,
+									"description": "部门ID"
+								},
+								{
+									"key": "jobId",
+									"value": null,
+									"description": "职位ID"
+								},
+								{
+									"key": "isTrain",
+									"value": null,
+									"description": "是否参加培训 0-否 1-是"
+								},
+								{
+									"key": "subjectId",
+									"value": null,
+									"description": "培训科目ID"
+								},
+								{
+									"key": "staffType",
+									"value": null,
+									"description": "员工类型 0-普通用户 1-管理员"
+								},
+								{
+									"key": "passWord",
+									"value": null,
+									"description": "管理员登录密码"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据ID删除某位员工",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/delUserById?id=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"delUserById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
