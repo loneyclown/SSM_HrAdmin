@@ -61,4 +61,15 @@
         SELECT count(*) AS total from staffinfo
     </select>
 
+    <insert id="insertStaffInfo">
+        INSERT INTO staffinfo
+        (staffName, staffAge, staffSex, phone, entryTime, jobId, isTrain, subjectId, staffType, passWord)
+        VALUES
+        (#{staffName}, #{staffAge}, #{staffSex}, #{phone}, #{entryTime}, #{jobId}, #{isTrain}, #{subjectId}, #{staffType}, #{passWord})
+    </insert>
+    
+    <delete id="deleteStaffInfoById">
+        DELETE FROM staffinfo WHERE id = #{id}
+    </delete>
+
 </mapper>

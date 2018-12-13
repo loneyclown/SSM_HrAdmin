@@ -12,6 +12,8 @@ public interface IStaffInfoDao {
 
     List<StaffInfo> selectAllStaffInfoByCurr(Map<String, Object> map);
     Integer selectCountStaffInfoALL();
+    Integer insertStaffInfo(StaffInfo staffInfo);
+    Integer deleteStaffInfoById(Integer id);
 
 
 //    User selectUserById(Integer id);

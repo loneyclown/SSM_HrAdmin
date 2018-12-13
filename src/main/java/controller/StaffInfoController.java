@@ -37,8 +37,8 @@ public class StaffInfoController {
         return map;
     }
 
-    @RequestMapping("/getStaffInfoById2")
-    public Map<String, Object> getStaffInfoById2(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    @RequestMapping("/getStaffInfoById")
+    public Map<String, Object> getStaffInfoById(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         String s_id = request.getParameter("id");
@@ -86,37 +86,37 @@ public class StaffInfoController {
         }
         return map;
     }
-//
-//    @RequestMapping("/addUser")
-//    public Map<String, Object> addUser(HttpServletRequest request, HttpServletResponse response, User user) throws IOException {
-//        request.setCharacterEncoding("UTF-8");
-//        response.setCharacterEncoding("UTF-8");
-//        Map<String, Object> map = new HashMap<String, Object>();
-//        map.put("is", false);
-//        Integer state = this.userService.addUser(user);
-//        if(state != -1) {
-//            map.put("is", true);
-//            map.put("msg", "添加成功！");
-//        }
-//        return map;
-//    }
-//
-//    @RequestMapping("/delUserById")
-//    public Map<String, Object> delUserById(HttpServletRequest request, HttpServletResponse response, User user) throws IOException {
-//        request.setCharacterEncoding("UTF-8");
-//        response.setCharacterEncoding("UTF-8");
-//        String s_id = request.getParameter("id");
-//        Map<String, Object> map = new HashMap<String, Object>();
-//        map.put("is", false);
-//        if(s_id.equals("")) {
-//            map.put("msg", "Id不能为空！");
-//        } else {
-//            Integer state = this.userService.delUserById(Integer.parseInt(s_id));
-//            if(state != -1) {
-//                map.put("is", true);
-//                map.put("msg", "删除成功！");
-//            }
-//        }
-//        return map;
-//    }
+
+    @RequestMapping("/addStaffInfo")
+    public Map<String, Object> addStaffInfo(HttpServletRequest request, HttpServletResponse response, StaffInfo staffInfo) throws IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("is", false);
+        Integer state = this.staffInfoService.addStaffInfo(staffInfo);
+        if(state != -1) {
+            map.put("is", true);
+            map.put("msg", "添加成功！");
+        }
+        return map;
+    }
+
+    @RequestMapping("/delStaffInfo")
+    public Map<String, Object> delStaffInfo(HttpServletRequest request, HttpServletResponse response, StaffInfo staffInfo) throws IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        String s_id = request.getParameter("id");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("is", false);
+        if(s_id.equals("")) {
+            map.put("msg", "Id不能为空！");
+        } else {
+            Integer state = this.staffInfoService.delStaffInfo(Integer.parseInt(s_id));
+            if(state != -1) {
+                map.put("is", true);
+                map.put("msg", "删除成功！");
+            }
+        }
+        return map;
+    }
 }

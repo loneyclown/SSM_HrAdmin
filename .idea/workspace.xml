@@ -11,12 +11,9 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/StaffInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/StaffInfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/IStaffInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/IStaffInfoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/JobTitle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/JobTitle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/StaffInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/StaffInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/IStaffInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/IStaffInfoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/impl/StaffInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/impl/StaffInfoServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/dao/StaffInfoDaoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dao/StaffInfoDaoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,7 +43,7 @@
       <file leaf-file-name="StaffInfo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/entity/StaffInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
+            <state relative-caret-position="300">
               <caret line="17" column="28" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -58,8 +55,8 @@
       <file leaf-file-name="IStaffInfoDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dao/IStaffInfoDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="44" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="44" />
+            <state relative-caret-position="285">
+              <caret line="15" column="31" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -67,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StaffInfoDaoMapper.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StaffInfoDaoMapper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/dao/StaffInfoDaoMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="46" column="71" selection-start-line="46" selection-start-column="71" selection-end-line="46" selection-end-column="71" />
+            <state relative-caret-position="870">
+              <caret line="69" column="4" lean-forward="true" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -79,8 +76,8 @@
       <file leaf-file-name="IStaffInfoService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/service/IStaffInfoService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="43" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="43" />
+            <state relative-caret-position="266">
+              <caret line="14" column="24" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,27 +88,28 @@
       <file leaf-file-name="StaffInfoServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/service/impl/StaffInfoServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="42" column="22" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="22" />
+            <state relative-caret-position="338">
+              <caret line="56" column="31" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1076#1077#0" expanded="true" />
-                <element signature="e#1140#1141#0" expanded="true" />
-                <element signature="e#1140#1156#0" expanded="true" />
-                <element signature="e#1205#1221#0" expanded="true" />
+                <element signature="e#1755#1756#0" expanded="true" />
+                <element signature="e#1782#1783#0" expanded="true" />
+                <element signature="e#1869#1870#0" expanded="true" />
+                <element signature="e#1896#1897#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StaffInfoController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StaffInfoController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/StaffInfoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="31" column="16" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+            <state relative-caret-position="437">
+              <caret line="113" column="63" selection-start-line="113" selection-start-column="63" selection-end-line="113" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3067#3083#0" expanded="true" />
+                <element signature="e#3729#3745#0" expanded="true" />
+                <element signature="e#4357#4373#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -157,12 +155,12 @@
         <option value="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" />
         <option value="$PROJECT_DIR$/src/main/java/entity/JobTitle.java" />
         <option value="$PROJECT_DIR$/src/main/java/entity/StaffInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/IStaffInfoService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/IStaffInfoDao.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/dao/StaffInfoDaoMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/service/IStaffInfoService.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/impl/StaffInfoServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/StaffInfoController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/dao/StaffInfoDaoMapper.xml" />
       </list>
     </option>
   </component>
@@ -192,7 +190,7 @@
       <path value="$PROJECT_DIR$/src/main/webapp/vendors/iconfonts/mdi/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -205,6 +203,8 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -334,8 +334,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -505,12 +503,13 @@
       <workItem from="1543548248793" duration="140000" />
       <workItem from="1543548628430" duration="98000" />
       <workItem from="1544405043784" duration="13767000" />
-      <workItem from="1544577840431" duration="12373000" />
+      <workItem from="1544577840431" duration="12983000" />
+      <workItem from="1544664354531" duration="2829000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59751000" />
+    <option name="totallyTimeSpent" value="63190000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -915,16 +914,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/StaffInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/entity/Department.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -945,45 +934,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dao/UserDaoMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/StaffInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="39" column="13" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="39" selection-end-column="13" />
+        <state relative-caret-position="300">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="40" column="61" lean-forward="true" selection-start-line="40" selection-start-column="61" selection-end-line="40" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/StaffInfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="31" column="16" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3067#3083#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="152">
+          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/IStaffInfoDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="44" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="44" />
+        <state relative-caret-position="285">
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/dao/UserDaoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="45" column="14" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/dao/StaffInfoDaoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="69" column="4" lean-forward="true" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/service/IStaffInfoService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="43" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="43" />
+        <state relative-caret-position="266">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -992,22 +987,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/service/impl/StaffInfoServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="42" column="22" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="22" />
+        <state relative-caret-position="338">
+          <caret line="56" column="31" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1076#1077#0" expanded="true" />
-            <element signature="e#1140#1141#0" expanded="true" />
-            <element signature="e#1140#1156#0" expanded="true" />
-            <element signature="e#1205#1221#0" expanded="true" />
+            <element signature="e#1755#1756#0" expanded="true" />
+            <element signature="e#1782#1783#0" expanded="true" />
+            <element signature="e#1869#1870#0" expanded="true" />
+            <element signature="e#1896#1897#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dao/StaffInfoDaoMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/StaffInfoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="46" column="71" selection-start-line="46" selection-start-column="71" selection-end-line="46" selection-end-column="71" />
+        <state relative-caret-position="437">
+          <caret line="113" column="63" selection-start-line="113" selection-start-column="63" selection-end-line="113" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3729#3745#0" expanded="true" />
+            <element signature="e#4357#4373#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

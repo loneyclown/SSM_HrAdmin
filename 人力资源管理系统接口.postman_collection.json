@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f62443a8-362f-4e2f-9892-6d897b19a9fc",
+		"_postman_id": "a21b9fd4-d4c7-44e4-b1fc-c9e5bfd83244",
 		"name": "人力资源管理系统接口",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -60,7 +60,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/staffInfo/getStaffInfoById2?id=1",
+							"raw": "http://localhost:8080/staffInfo/getStaffInfoById?id=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -68,7 +68,7 @@
 							"port": "8080",
 							"path": [
 								"staffInfo",
-								"getStaffInfoById2"
+								"getStaffInfoById"
 							],
 							"query": [
 								{
@@ -90,15 +90,15 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/user/listUserInfo?curr=1&limit=5",
+							"raw": "http://localhost:8080/staffInfo/listStaffInfoByCurr?curr=1&limit=5",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"user",
-								"listUserInfo"
+								"staffInfo",
+								"listStaffInfoByCurr"
 							],
 							"query": [
 								{
@@ -126,15 +126,15 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/user/addUser?staffName=夏雨荷&staffAge=23&staffSex=2&phone=17722222222&entryTime=2018-11-28&departmentId&jobId&isTrain&subjectId&staffType&passWord",
+							"raw": "http://localhost:8080/staffInfo/addStaffInfo?staffName=夏雨荷&staffAge=23&staffSex=2&phone=17733333333&entryTime=2018-11-28&jobId=7&isTrain=0&subjectId&staffType=0&passWord",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"user",
-								"addUser"
+								"staffInfo",
+								"addStaffInfo"
 							],
 							"query": [
 								{
@@ -154,7 +154,7 @@
 								},
 								{
 									"key": "phone",
-									"value": "17722222222",
+									"value": "17733333333",
 									"description": "员工手机号"
 								},
 								{
@@ -163,18 +163,13 @@
 									"description": "入职时间"
 								},
 								{
-									"key": "departmentId",
-									"value": null,
-									"description": "部门ID"
-								},
-								{
 									"key": "jobId",
-									"value": null,
+									"value": "7",
 									"description": "职位ID"
 								},
 								{
 									"key": "isTrain",
-									"value": null,
+									"value": "0",
 									"description": "是否参加培训 0-否 1-是"
 								},
 								{
@@ -184,7 +179,7 @@
 								},
 								{
 									"key": "staffType",
-									"value": null,
+									"value": "0",
 									"description": "员工类型 0-普通用户 1-管理员"
 								},
 								{

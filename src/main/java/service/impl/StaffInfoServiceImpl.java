@@ -50,13 +50,13 @@ public class StaffInfoServiceImpl implements IStaffInfoService {
         return map;
     }
 
-//    public int addUser(User user) {
-//        return this.userDao.insertUser(user);
-//    }
+    public Integer addStaffInfo(StaffInfo staffInfo) {
+        return this.staffInfoDao.insertStaffInfo(staffInfo);
+    }
 
-//    public int delUserById(Integer id) {
-//        return this.userDao.deleteUserById(id);
-//    }
+    public Integer delStaffInfo(Integer id) {
+        return this.staffInfoDao.deleteStaffInfoById(id);
+    }
 
 }
 
