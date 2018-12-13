@@ -20,6 +20,4 @@ public class StaffInfo implements Serializable {
     private String passWord;
 
     private List<Department> departments;
-//    private List<JobTitle> jobs;
-//    private List<Subject> subject;
 }

@@ -29,7 +29,7 @@
     </resultMap>
 
     <select id="login" parameterType="map" resultType="entity.StaffInfo">
-        SELECT staffName FROM staffinfo WHERE staffName=#{staffName} AND passWord=#{passWord}
+        SELECT id, staffName FROM staffinfo WHERE staffName=#{staffName} AND passWord=#{passWord}
     </select>
 
     <select id="selectStaffInfoById" resultMap="staffInfo">

@@ -13,7 +13,7 @@ import java.util.List;
 @ContextConfiguration({"classpath:applicationContext.xml"})
 public class IUserServiceTest {
     @Autowired
-    private IUserService userService;
+//    private IUserService userService;
     @Test
     public void selectUser() {
 //        Integer id = 1;

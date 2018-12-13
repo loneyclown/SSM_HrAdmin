@@ -49,6 +49,15 @@
     <table id="table"></table>
   </div>
 </body>
+
+<script type="text/html" id="departmentTpl">
+  {{d.departments[0].departmentName}}
+</script>
+
+<script type="text/html" id="jobTitleTpl">
+  {{d.departments[0].jobTitles[0].jobName}}
+</script>
+
 <script src="../../plugins/layui/layui.js"></script>
 <script>
   layui.use(["layer", "table"], function () {
@@ -56,8 +65,12 @@
 
     table.render({
       elem: '#table',
-      height: 312,
-      url: 'http://localhost:8080/user/listUserInfo?curr=1&limit=5', //数据接口
+      // height: 312,
+      url: 'http://localhost:8080/staffInfo/listStaffInfoByCurr', //数据接口
+      request: {
+        pageName: "curr",
+        limitName: "limit"
+      },
       page: true, //开启分页
       response: {
         statusName: "is",
@@ -93,13 +106,15 @@
             title: '入职时间',
             width: 200,
           }, {
-            field: 'departmentId',
+            field: 'departments',
             title: '所在部门',
-            width: 200
+            width: 200,
+            templet: "#departmentTpl"
           }, {
             field: 'jobId',
             title: '所处职位',
-            width: 200
+            width: 200,
+            templet: "#jobTitleTpl"
           }, {
             field: 'option',
             title: '操作',

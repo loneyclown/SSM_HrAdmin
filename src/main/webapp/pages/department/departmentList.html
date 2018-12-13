@@ -66,7 +66,7 @@
     table.render({
       elem: '#table',
       // height: 312,
-      url: 'http://localhost:8080/staffInfo/listStaffInfoByCurr', //数据接口
+      url: 'http://localhost:8080/department/listDepartmentByCurr', //数据接口
       request: {
         pageName: "curr",
         limitName: "limit"
@@ -86,35 +86,9 @@
             title: 'ID',
             width: 80,
           }, {
-            field: 'staffName',
-            title: '员工姓名',
+            field: 'departmentName',
+            title: '部门名称',
             width: 120
-          }, {
-            field: 'staffSex',
-            title: '性别',
-            width: 80
-          }, {
-            field: 'staffAge',
-            title: '年龄',
-            width: 80
-          }, {
-            field: 'phone',
-            title: '联系电话',
-            width: 150
-          }, {
-            field: 'entryTime',
-            title: '入职时间',
-            width: 200,
-          }, {
-            field: 'departments',
-            title: '所在部门',
-            width: 200,
-            templet: "#departmentTpl"
-          }, {
-            field: 'jobId',
-            title: '所处职位',
-            width: 200,
-            templet: "#jobTitleTpl"
           }, {
             field: 'option',
             title: '操作',

@@ -202,20 +202,59 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/user/delUserById?id=5",
+							"raw": "http://localhost:8080/staffInfo/delStaffInfo?id=3",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"user",
-								"delUserById"
+								"staffInfo",
+								"delStaffInfo"
 							],
 							"query": [
 								{
 									"key": "id",
-									"value": "5"
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "部门信息",
+			"item": [
+				{
+					"name": "分页获取部门信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/department/listDepartmentByCurr?curr=1&limit=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"department",
+								"listDepartmentByCurr"
+							],
+							"query": [
+								{
+									"key": "curr",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
 								}
 							]
 						}

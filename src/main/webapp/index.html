@@ -79,8 +79,8 @@
                 <span class="login-status online"></span>        
               </div>
               <div class="nav-profile-text d-flex flex-column">
-                <span class="font-weight-bold mb-2">clown</span>
-                <span class="text-secondary text-small">人事部 - 经理</span>
+                <span class="font-weight-bold mb-2" cust-staffName>clown</span>
+                <span class="text-secondary text-small" cust-department>人事部 - 经理</span>
               </div>
             </a>
           </li>
@@ -92,7 +92,7 @@
             </a>
             <div class="collapse" id="ui-staff">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="#">员工列表</a></li>
+                <li class="nav-item"> <a class="nav-link" page="./pages/staff/staffList.html" href="#">员工列表</a></li>
               </ul>
             </div>
           </li>
@@ -104,7 +104,8 @@
             </a>
             <div class="collapse" id="ui-department">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="#">部门列表</a></li>
+                <li class="nav-item"> <a class="nav-link" page="./pages/department/departmentList.html" href="#">部门列表</a></li>
+                <li class="nav-item"> <a class="nav-link" page="" href="#">职称列表</a></li>
               </ul>
             </div>
           </li>
@@ -120,7 +121,7 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-jobTitle" aria-expanded="false" aria-controls="ui-jobTitle">
               <span class="menu-title">职称管理</span>
               <i class="menu-arrow"></i>
@@ -131,7 +132,7 @@
                 <li class="nav-item"> <a class="nav-link" href="#">职称列表</a></li>
               </ul>
             </div>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-bonus" aria-expanded="false" aria-controls="ui-bonus">
               <span class="menu-title">奖罚管理</span>
@@ -162,7 +163,7 @@
       <div class="main-panel">
 
         <div class="content-wrapper">
-          <iframe src="./pages/staff/staffList.html" class="iframe" name="contentFrame"></iframe>
+          <iframe id="iframe" src="./pages/staff/staffList.html" class="iframe" name="contentFrame"></iframe>
         </div>
         <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
@@ -170,16 +171,36 @@
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">by loneyclown
               <i class="mdi mdi-crown text-danger"></i> - <a href="http://loneyclown.vip/" target="_blank">Loneyclown Blog</a> </span>
           </div>
-        </footer>\
+        </footer>
       </div>
     </div>
   </div>
 </body>
 <script src="vendors/js/vendor.bundle.base.js"></script>
 <script src="vendors/js/vendor.bundle.addons.js"></script>
+<script src="./plugins/layui/layui.js"></script>
 <script>
-  $(function() {
+  layui.use(["layer"], function() {
+    var layer = layui.layer,
+      $page = $("[page]"),
+      $iframe = $("#iframe");
 
+    $.getJSON("http://localhost:8080/staffInfo/getStaffInfoById?id=1")
+    .then(function(res) {
+      if(res.is) {
+        $("[cust-staffName]").html(res.staffInfo.staffName);
+        $("[cust-department]").html(res.staffInfo.departments[0].departmentName + " - " + res.staffInfo.departments[0].jobTitles[0].jobName);
+      } else {
+        layer.msg("数据请求失败！");
+      }
+    });
+    
+
+    $page.click(function() {
+      console.log($(this).attr("page"));
+      $iframe.attr("src", $(this).attr("page"));
+    });
+    
   });
 </script>
 

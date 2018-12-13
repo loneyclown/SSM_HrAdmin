@@ -33,6 +33,7 @@ public class StaffInfoController {
             map.put("is", true);
             map.put("msg", "登录成功！");
             map.put("staffName", staffInfo.getStaffName());
+            map.put("id", staffInfo.getId());
         }
         return map;
     }
@@ -52,7 +53,7 @@ public class StaffInfoController {
                 map.put("msg", "用户不存在！");
             } else {
                 map.put("is", true);
-                map.put("staffName", staffInfo);
+                map.put("staffInfo", staffInfo);
             }
         }
         return map;
