@@ -1,6 +1,6 @@
 package service.impl;
 
-import dao.IDepartment;
+import dao.IDepartmentDao;
 import entity.Department;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import java.util.Map;
 @Service
 public class DepartmentServiceImpl implements IDepartmentService {
     @Autowired
-    private IDepartment departmentDao;
+    private IDepartmentDao departmentDao;
 
     public Map<String, Object> listDepartmentByCurr(Integer curr, Integer limit) {
         Map<String, Object> map = new HashMap<String, Object>();
@@ -23,7 +23,7 @@ public class DepartmentServiceImpl implements IDepartmentService {
         req.put("start", start);
         req.put("size", size);
         List<Department> list = this.departmentDao.selectAllDepartmentByCurr(req);
-//        Integer total = this.departmentDao.selectCountStaffInfoALL();
+        Integer total = this.departmentDao.selectCountDeprecatedALL();
         for (int i = 0; i<list.size(); i++) {
             System.out.println(list.get(i));
         }
@@ -31,7 +31,16 @@ public class DepartmentServiceImpl implements IDepartmentService {
             map.put("count",list.size() );
             map.put("list", list);
         }
-//        map.put("total",total );
+        map.put("total",total );
+        return map;
+    }
+
+    public Map<String, Object> listDepartment() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        List<Department> list = this.departmentDao.selectAllDepartment();
+        if(list != null) {
+            map.put("list", list);
+        }
         return map;
     }
 }

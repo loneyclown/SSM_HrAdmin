@@ -260,6 +260,65 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "获取所有部门",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/department/listDepartment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"department",
+								"listDepartment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "职称信息",
+			"item": [
+				{
+					"name": "根据部门ID获取所有职称",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/jobTitle/listJobTitleByDepartmentId?departmentId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jobTitle",
+								"listJobTitleByDepartmentId"
+							],
+							"query": [
+								{
+									"key": "departmentId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

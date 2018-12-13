@@ -34,7 +34,7 @@
       margin: 0;
       border: none;
       width: 100%;
-      height: 1000px;
+      height: 700px;
     }
   </style>
 
@@ -79,8 +79,8 @@
                 <span class="login-status online"></span>        
               </div>
               <div class="nav-profile-text d-flex flex-column">
-                <span class="font-weight-bold mb-2">clown</span>
-                <span class="text-secondary text-small">人事部 - 经理</span>
+                <span class="font-weight-bold mb-2" cust-staffName>clown</span>
+                <span class="text-secondary text-small" cust-department>人事部 - 经理</span>
               </div>
             </a>
           </li>
@@ -178,16 +178,26 @@
 </body>
 <script src="vendors/js/vendor.bundle.base.js"></script>
 <script src="vendors/js/vendor.bundle.addons.js"></script>
+<script src="./plugins/layui/layui.js"></script>
 <script>
-  $(function() {
+  layui.use(["layer"], function() {
+    var layer = layui.layer,
+      $page = $("[page]"),
+      $iframe = $("#iframe");
 
-    // $.getJSON("")
-    console.log($("[page]"));
-    var $page = $("[page]");
-    var $iframe = $("#iframe");
+    $.getJSON("http://localhost:8080/staffInfo/getStaffInfoById?id=1")
+    .then(function(res) {
+      if(res.is) {
+        $("[cust-staffName]").html(res.staffInfo.staffName);
+        $("[cust-department]").html(res.staffInfo.departments[0].departmentName + " - " + res.staffInfo.departments[0].jobTitles[0].jobName);
+      } else {
+        layer.msg("数据请求失败！");
+      }
+    });
+    
 
     $page.click(function() {
-      console.log($(this).attr("page"));
+      // console.log($(this).attr("page"));
       $iframe.attr("src", $(this).attr("page"));
     });
     

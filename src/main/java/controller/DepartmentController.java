@@ -44,4 +44,12 @@ public class DepartmentController {
         return map;
     }
 
+    @RequestMapping("/listDepartment")
+    public Map<String, Object> listDepartment(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("is", true);
+        Map<String, Object> res = this.departmentService.listDepartment();
+        map.put("data", res.get("list"));
+        return map;
+    }
 }

@@ -6,6 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="../../css/style.css">
+
   <link rel="stylesheet" href="../../css/reset.css">
   <link rel="stylesheet" href="../../plugins/layui/css/layui.css">
 
@@ -40,15 +45,194 @@
       font-weight: normal;
       border-bottom-width: 1px;
     }
+    .layui-laypage .layui-laypage-curr .layui-laypage-em {
+      background-color: #198ae3;
+    }
+    .badge-danger {
+      border: 1px solid #198ae3;
+      background-color: #198ae3;
+      color: #ffffff;
+    }
+    .badge {
+      display: inline-block;
+      border-radius: .125rem;
+      font-size: 11px;
+      font-weight: initial;
+      line-height: 1;
+      padding: .375rem .5625rem;
+      font-family: "ubuntu-medium", sans-serif;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      cursor: pointer;
+    }
+    .badge:hover {
+      opacity: .8;
+    }
+    .layui-layer-btn .layui-layer-btn0 {
+      border-color: #1E9FFF;
+      background-color: #1E9FFF;
+      color: #fff!important;
+    }
+    .form-box {
+      padding: 20px 20px 0 20px;
+    }
+    .form-box .form-label {
+      box-sizing: border-box;
+      padding: 0;
+      height: 38px;
+      line-height: 38px;
+      text-align: right;
+    }
+    .form-box .form-input-box {
+      margin-bottom: 20px;
+      padding: 0 20px;
+    }
+    .form-box .layui-input:focus, .form-box .layui-textarea:focus {
+      color: #495057;
+      background-color: #fff;
+      border-color: #80bdff!important;
+      outline: 0;
+      box-shadow: 0 0 0 .5px rgba(0, 123, 255, 0.25);
+    }
+    .form-box .layui-form-onswitch {
+      border-color: #1E9FFF;
+      background-color: #1E9FFF;
+    }
+    .form-box .layui-form-radio>i:hover, .layui-form-radioed>i {
+      color: #1E9FFF;
+    }
+    .form-box .layui-form-select dl dd.layui-this {
+      background-color: #1E9FFF;
+    }
+    .layui-laydate td.layui-this {
+      background-color: #1E9FFF!important;
+    }
   </style>
 
 </head>
 
 <body>
   <div class="table-box">
-    <table id="table"></table>
+    <table id="table" lay-filter="table"></table>
+  </div>
+
+  <div id="addForm">
+    <div class="form-box">
+      <form class="layui-form">
+        <div class="layui-row">
+          <div class="layui-col-md2">
+            <div class="form-label">员工姓名</div>
+          </div>
+          <div class="layui-col-md10">
+            <div class="form-input-box">
+              <input type="text" name="title" required="" lay-verify="required" placeholder="员工姓名" autocomplete="off"
+                class="layui-input form-control">
+            </div>
+          </div>
+        </div>
+        <div class="layui-row">
+          <div class="layui-col-md2">
+            <div class="form-label">员工年龄</div>
+          </div>
+          <div class="layui-col-md3">
+            <div class="form-input-box">
+              <input type="text" name="title" required="" lay-verify="required" placeholder="" autocomplete="off" class="layui-input form-control">
+            </div>
+          </div>
+          <div class="layui-col-md2">
+            <div class="form-label">员工性别</div>
+          </div>
+          <div class="layui-col-md5">
+            <div class="form-input-box">
+              <input type="radio" name="sex" value="nan" title="男">
+              <input type="radio" name="sex" value="nv" title="女" checked>
+            </div>
+          </div>
+        </div>
+        <div class="layui-row">
+          <div class="layui-col-md2">
+            <div class="form-label">员工手机号</div>
+          </div>
+          <div class="layui-col-md10">
+            <div class="form-input-box">
+              <input type="text" name="title" required="" lay-verify="required" placeholder="员工手机号" autocomplete="off"
+                class="layui-input form-control">
+            </div>
+          </div>
+        </div>
+        <div class="layui-row">
+          <div class="layui-col-md2">
+            <div class="form-label">入职时间</div>
+          </div>
+          <div class="layui-col-md10">
+            <div class="form-input-box">
+              <input type="text" id="entryTime" name="title" required="" lay-verify="required" placeholder="入职时间"
+                autocomplete="off" class="layui-input form-control">
+            </div>
+          </div>
+        </div>
+        <div class="layui-row">
+          <div class="layui-col-md2">
+            <div class="form-label">分配部门</div>
+          </div>
+          <div class="layui-col-md4">
+            <div class="form-input-box">
+              <select id="departmentList" lay-filter="departmentList" name="city" lay-verify="">
+                <option value="">请选择部门</option>
+                <option value="010">北京</option>
+                <option value="021">上海</option>
+                <option value="0571">杭州</option>
+              </select>
+            </div>
+          </div>
+          <div class="layui-col-md2">
+            <div class="form-label">分配职位</div>
+          </div>
+          <div class="layui-col-md4">
+            <div class="form-input-box">
+              <select id="jobTitleList" name="city" lay-verify="">
+                <option value="">请选择职位</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="layui-row">
+          <div class="layui-col-md2">
+            <div class="form-label">是否管理员</div>
+          </div>
+          <div class="layui-col-md10">
+            <div class="form-input-box">
+              <input type="checkbox" name="yyy" lay-skin="switch" lay-text="ON|OFF" checked>
+            </div>
+          </div>
+        </div>
+        <div class="layui-row">
+          <div class="layui-col-md2">
+            <div class="form-label">登录密码</div>
+          </div>
+          <div class="layui-col-md10">
+            <div class="form-input-box">
+              <input type="text" name="title" required="" lay-verify="required" placeholder="登录密码" autocomplete="off"
+                class="layui-input form-control">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </body>
+
+
+<script type="text/html" id="toolbar">
+  <label class="badge badge-danger" lay-event="add">添加</label>
+  <!-- <label class="badge badge-danger">编辑</label> -->
+</script>
+
+<script type="text/html" id="colsToolbar">
+  <label class="badge badge-danger" lay-event="del">删除</label>
+  <label class="badge badge-danger" lay-event="edit">编辑</label>
+</script>
 
 <script type="text/html" id="departmentTpl">
   {{d.departments[0].departmentName}}
@@ -58,10 +242,65 @@
   {{d.departments[0].jobTitles[0].jobName}}
 </script>
 
+<script src="../../vendors/js/vendor.bundle.base.js"></script>
 <script src="../../plugins/layui/layui.js"></script>
 <script>
-  layui.use(["layer", "table"], function () {
-    var table = layui.table;
+  layui.use(["layer", "table", "form", "laydate", "element"], function () {
+    var table = layui.table,
+      layer = layui.layer,
+      form = layui.form,
+      laydate = layui.laydate,
+      element = layui.element;
+
+    layer.open({
+      type: 1,
+      title: "添加员工",
+      content: $("#addForm"),
+      area: ['500px', '600px'],
+      btn: ['提交', '取消'],
+      success: function () {
+        laydate.render({
+          elem: '#entryTime' //指定元素
+        });
+
+        $.getJSON("http://localhost:8080/department/listDepartment")
+          .then(function (res) {
+            if (res.is) {
+              $('#departmentList').html("");
+              $("#departmentList").append('<option value="">请选择部门</option>');
+              layui.each(res.data, function (index, item) {
+                $("#departmentList").append('<option value="' + item.id + '">' + item.departmentName + '</option>');
+              });
+              form.render("select");
+            } else {
+              layer.msg("数据请求失败！");
+            }
+          });
+
+        form.on('select(departmentList)', function (data) {
+          console.log(data.elem); //得到select原始DOM对象
+          console.log(data.value); //得到被选中的值
+          console.log(data.othis); //得到美化后的DOM对象
+          $.getJSON("http://localhost:8080/jobTitle/listJobTitleByDepartmentId?departmentId="+data.value)
+          .then(function(res) {
+            if(res.is) {
+              $('#jobTitleList').html("");
+              $("#jobTitleList").append('<option value="">请选择职位</option>');
+              layui.each(res.data, function (index, item) {
+                $("#jobTitleList").append('<option value="' + item.id + '">' + item.jobName + '</option>');
+              });
+              form.render("select");
+            } else {
+              layer.msg("数据请求失败！");
+            }
+          })
+        });
+
+
+      }
+    });
+
+
 
     table.render({
       elem: '#table',
@@ -79,6 +318,8 @@
         countName: "total",
         dataName: "data"
       },
+      toolbar: "#toolbar",
+      defaultToolbar: [],
       cols: [
         [ //表头
           {
@@ -118,6 +359,7 @@
           }, {
             field: 'option',
             title: '操作',
+            toolbar: "#colsToolbar"
           }
         ]
       ],
@@ -133,6 +375,50 @@
       //     jobId: "1"
       //   }
       // ]
+    });
+
+    //监听顶部工具条
+    table.on('toolbar(table)', function (obj) {
+      var checkStatus = table.checkStatus(obj.config.id);
+      if (obj.event === "add") {
+        layer.msg('添加');
+      }
+    });
+
+    //监听工具条
+    table.on('tool(table)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+      var data = obj.data; //获得当前行数据
+      var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+      var tr = obj.tr; //获得当前行 tr 的DOM对象
+
+      if (layEvent === 'del') { //查看
+        layer.confirm('真的删除行么', function (index) {
+          console.log(data);
+          $.getJSON("http://localhost:8080/staffInfo/delStaffInfo?id=" + data.id)
+            .then(function (res) {
+              if (res.is) {
+                layer.msg("删除成功！");
+                obj.del();
+                // layer.close(index);
+              } else {
+                layer.msg("数据请求失败！");
+              }
+            })
+
+          // obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+          // layer.close(index);
+          //向服务端发送删除指令
+          // http://localhost:8080/staffInfo/delStaffInfo?id=3
+        });
+      } else if (layEvent === 'edit') { //编辑
+        //do something
+
+        //同步更新缓存对应的值
+        // obj.update({
+        //   username: '123',
+        //   title: 'xxx'
+        // });
+      }
     });
   });
 </script>

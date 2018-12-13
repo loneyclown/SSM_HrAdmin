@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.IJobTitleDao">
+
+    <resultMap id="jobTitle" type="entity.JobTitle">
+        <id column="id" property="id"/>
+        <result column="jobName" property="jobName"/>
+        <result column="departmentId" property="departmentId"/>
+    </resultMap>
+
+    <select id="selectALLJobTitleBydepartmentId" resultType="entity.JobTitle">
+        SELECT * from jobtitle WHERE departmentId = #{id}
+    </select>
+
+</mapper>
