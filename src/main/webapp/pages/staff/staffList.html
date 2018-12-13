@@ -117,7 +117,7 @@
     <table id="table" lay-filter="table"></table>
   </div>
 
-  <div id="addForm">
+  <div id="addForm" style="display: none">
     <div class="form-box">
       <form class="layui-form">
         <div class="layui-row">
@@ -126,8 +126,7 @@
           </div>
           <div class="layui-col-md10">
             <div class="form-input-box">
-              <input type="text" name="title" required="" lay-verify="required" placeholder="员工姓名" autocomplete="off"
-                class="layui-input form-control">
+              <input type="text" name="staffName" required="" lay-verify="required" placeholder="员工姓名" autocomplete="off" class="layui-input form-control">
             </div>
           </div>
         </div>
@@ -137,7 +136,7 @@
           </div>
           <div class="layui-col-md3">
             <div class="form-input-box">
-              <input type="text" name="title" required="" lay-verify="required" placeholder="" autocomplete="off" class="layui-input form-control">
+              <input type="text" name="staffAge" required="" lay-verify="number" placeholder="年龄" autocomplete="off" class="layui-input form-control">
             </div>
           </div>
           <div class="layui-col-md2">
@@ -145,8 +144,8 @@
           </div>
           <div class="layui-col-md5">
             <div class="form-input-box">
-              <input type="radio" name="sex" value="nan" title="男">
-              <input type="radio" name="sex" value="nv" title="女" checked>
+              <input type="radio" name="staffSex" value="0" title="男">
+              <input type="radio" name="staffSex" value="1" title="女" checked>
             </div>
           </div>
         </div>
@@ -156,8 +155,7 @@
           </div>
           <div class="layui-col-md10">
             <div class="form-input-box">
-              <input type="text" name="title" required="" lay-verify="required" placeholder="员工手机号" autocomplete="off"
-                class="layui-input form-control">
+              <input type="text" name="phone" required="" lay-verify="phone" placeholder="员工手机号" autocomplete="off" class="layui-input form-control">
             </div>
           </div>
         </div>
@@ -167,8 +165,7 @@
           </div>
           <div class="layui-col-md10">
             <div class="form-input-box">
-              <input type="text" id="entryTime" name="title" required="" lay-verify="required" placeholder="入职时间"
-                autocomplete="off" class="layui-input form-control">
+              <input type="text" id="entryTime" name="entryTime" required="" lay-verify="date" placeholder="入职时间" autocomplete="off" class="layui-input form-control">
             </div>
           </div>
         </div>
@@ -178,7 +175,7 @@
           </div>
           <div class="layui-col-md4">
             <div class="form-input-box">
-              <select id="departmentList" lay-filter="departmentList" name="city" lay-verify="">
+              <select id="departmentList" lay-filter="departmentList" lay-verify="">
                 <option value="">请选择部门</option>
                 <option value="010">北京</option>
                 <option value="021">上海</option>
@@ -191,7 +188,7 @@
           </div>
           <div class="layui-col-md4">
             <div class="form-input-box">
-              <select id="jobTitleList" name="city" lay-verify="">
+              <select id="jobTitleList" name="jobId" lay-verify="">
                 <option value="">请选择职位</option>
               </select>
             </div>
@@ -203,21 +200,21 @@
           </div>
           <div class="layui-col-md10">
             <div class="form-input-box">
-              <input type="checkbox" name="yyy" lay-skin="switch" lay-text="ON|OFF" checked>
+              <input type="checkbox" name="staffType" value="1" lay-skin="switch" lay-text="ON|OFF" lay-filter="isTrain">
             </div>
           </div>
         </div>
-        <div class="layui-row">
+        <div id="passWordRow" class="layui-row" style="display: none">
           <div class="layui-col-md2">
             <div class="form-label">登录密码</div>
           </div>
           <div class="layui-col-md10">
             <div class="form-input-box">
-              <input type="text" name="title" required="" lay-verify="required" placeholder="登录密码" autocomplete="off"
-                class="layui-input form-control">
+              <input type="text" name="passWord" lay-verify="" placeholder="登录密码" autocomplete="off" class="layui-input form-control">
             </div>
           </div>
         </div>
+        <button id="addBtn" lay-submit lay-filter="addBtn" style="display: none">提交</button>
       </form>
     </div>
   </div>
@@ -232,6 +229,14 @@
 <script type="text/html" id="colsToolbar">
   <label class="badge badge-danger" lay-event="del">删除</label>
   <label class="badge badge-danger" lay-event="edit">编辑</label>
+</script>
+
+<script type="text/html" id="staffSexTpl">
+  {{d.staffSex==0?'男':'女'}}
+</script>
+
+<script type="text/html" id="entryTimeTpl">
+  {{d.entryTime.substr(0, 10)}}
 </script>
 
 <script type="text/html" id="departmentTpl">
@@ -252,60 +257,9 @@
       laydate = layui.laydate,
       element = layui.element;
 
-    layer.open({
-      type: 1,
-      title: "添加员工",
-      content: $("#addForm"),
-      area: ['500px', '600px'],
-      btn: ['提交', '取消'],
-      success: function () {
-        laydate.render({
-          elem: '#entryTime' //指定元素
-        });
-
-        $.getJSON("http://localhost:8080/department/listDepartment")
-          .then(function (res) {
-            if (res.is) {
-              $('#departmentList').html("");
-              $("#departmentList").append('<option value="">请选择部门</option>');
-              layui.each(res.data, function (index, item) {
-                $("#departmentList").append('<option value="' + item.id + '">' + item.departmentName + '</option>');
-              });
-              form.render("select");
-            } else {
-              layer.msg("数据请求失败！");
-            }
-          });
-
-        form.on('select(departmentList)', function (data) {
-          if(!data.value) {
-            $('#jobTitleList').html("");
-            $("#jobTitleList").append('<option value="">请选择职位</option>');
-            form.render("select");
-            return;
-          };
-          $.getJSON("http://localhost:8080/jobTitle/listJobTitleByDepartmentId?departmentId="+data.value)
-          .then(function(res) {
-            if(res.is) {
-              $('#jobTitleList').html("");
-              $("#jobTitleList").append('<option value="">请选择职位</option>');
-              layui.each(res.data, function (index, item) {
-                $("#jobTitleList").append('<option value="' + item.id + '">' + item.jobName + '</option>');
-              });
-              form.render("select");
-            } else {
-              layer.msg("数据请求失败！");
-            }
-          })
-        });
 
 
-      }
-    });
-
-
-
-    table.render({
+    var dataTable = table.render({
       elem: '#table',
       // height: 312,
       url: 'http://localhost:8080/staffInfo/listStaffInfoByCurr', //数据接口
@@ -336,7 +290,8 @@
           }, {
             field: 'staffSex',
             title: '性别',
-            width: 80
+            width: 80,
+            templet: "#staffSexTpl"
           }, {
             field: 'staffAge',
             title: '年龄',
@@ -348,16 +303,17 @@
           }, {
             field: 'entryTime',
             title: '入职时间',
-            width: 200,
+            width: 120,
+            templet: "#entryTimeTpl"
           }, {
             field: 'departments',
             title: '所在部门',
-            width: 200,
+            width: 140,
             templet: "#departmentTpl"
           }, {
             field: 'jobId',
             title: '所处职位',
-            width: 200,
+            width: 140,
             templet: "#jobTitleTpl"
           }, {
             field: 'option',
@@ -382,9 +338,11 @@
 
     //监听顶部工具条
     table.on('toolbar(table)', function (obj) {
+      console.log(obj);
+      
       var checkStatus = table.checkStatus(obj.config.id);
       if (obj.event === "add") {
-        layer.msg('添加');
+        addOpenFrom(obj);
       }
     });
 
@@ -395,13 +353,14 @@
       var tr = obj.tr; //获得当前行 tr 的DOM对象
 
       if (layEvent === 'del') { //查看
-        layer.confirm('真的删除行么', function (index) {
+        layer.confirm('确定要删除该员工信息吗？', function (index) {
           console.log(data);
           $.getJSON("http://localhost:8080/staffInfo/delStaffInfo?id=" + data.id)
             .then(function (res) {
               if (res.is) {
                 layer.msg("删除成功！");
-                obj.del();
+                // obj.del();
+                dataTable.reload();
                 // layer.close(index);
               } else {
                 layer.msg("数据请求失败！");
@@ -423,6 +382,78 @@
         // });
       }
     });
+
+    function addOpenFrom(obj) {
+      layer.open({
+        type: 1,
+        title: "添加员工",
+        content: $("#addForm"),
+        area: ['500px', '600px'],
+        btn: ['提交', '取消'],
+        success: function (layero, thisLayer) {
+          laydate.render({
+            elem: '#entryTime' //指定元素
+          });
+
+          $.getJSON("http://localhost:8080/department/listDepartment")
+            .then(function (res) {
+              if (res.is) {
+                $('#departmentList').html("");
+                $("#departmentList").append('<option value="">请选择部门</option>');
+                layui.each(res.data, function (index, item) {
+                  $("#departmentList").append('<option value="' + item.id + '">' + item.departmentName + '</option>');
+                });
+                form.render("select");
+              } else {
+                layer.msg("数据请求失败！");
+              }
+            });
+
+          form.on('select(departmentList)', function (data) {
+            if(!data.value) {
+              $('#jobTitleList').html("");
+              $("#jobTitleList").append('<option value="">请选择职位</option>');
+              form.render("select");
+              return;
+            };
+            $.getJSON("http://localhost:8080/jobTitle/listJobTitleByDepartmentId?departmentId="+data.value)
+            .then(function(res) {
+              if(res.is) {
+                $('#jobTitleList').html("");
+                $("#jobTitleList").append('<option value="">请选择职位</option>');
+                layui.each(res.data, function (index, item) {
+                  $("#jobTitleList").append('<option value="' + item.id + '">' + item.jobName + '</option>');
+                });
+                form.render("select");
+              } else {
+                layer.msg("数据请求失败！");
+              }
+            })
+          });
+          form.on('switch(isTrain)', function(data){
+            if(data.elem.checked) {
+              $("#passWordRow").slideDown();
+            } else {
+              $("#passWordRow").slideUp();
+            }
+          });
+          form.on('submit(addBtn)', function(data){
+            $.post("http://localhost:8080/staffInfo/addStaffInfo", data.field)
+            .then(function(res) {
+              if(res.is) {
+                layer.msg(res.msg, {time: 1000, end: function() {dataTable.reload();layer.close(thisLayer)}});
+              } else {
+                layer.msg("数据请求失败！");
+              }
+            })
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+          });
+        },
+        yes: function() {
+          $("#addBtn").trigger("click");
+        }
+      });
+    }
   });
 </script>
 

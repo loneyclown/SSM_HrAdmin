@@ -7,72 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b398dee4-1848-4d1d-ba9d-9864a127beba" name="默认更改列表" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DepartmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/IDepartment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/IDepartmentDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/IDepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/IDepartmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/impl/DepartmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/impl/DepartmentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dao/DeprecatedDaoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dao/DeprecatedDaoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/staff/staffList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/staff/staffList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/layui.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/layui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/layui.mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/layui.mobile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/modules/code.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/modules/code.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/modules/laydate/default/laydate.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/modules/laydate/default/laydate.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/modules/layer/default/layer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/modules/layer/default/layer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/font/iconfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/font/iconfont.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/font/iconfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/font/iconfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/font/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/font/iconfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/font/iconfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/font/iconfont.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/carousel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/code.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/code.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/element.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/element.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/flow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/flow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/form.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/laydate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/laydate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/layedit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/layedit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/layer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/layer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/laypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/laypage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/laytpl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/laytpl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/mobile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/mobile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/rate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/rate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/table.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/tree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/tree.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/upload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/layui.all.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/layui.all.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/plugins/layui/layui.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/layui.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/pages/staff/staffList.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/pages/staff/staffList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/css/layui.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/css/layui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/css/layui.mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/css/layui.mobile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/css/modules/code.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/css/modules/code.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/css/modules/laydate/default/laydate.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/css/modules/laydate/default/laydate.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/css/modules/layer/default/layer.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/css/modules/layer/default/layer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/font/iconfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/font/iconfont.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/font/iconfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/font/iconfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/font/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/font/iconfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/font/iconfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/font/iconfont.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/carousel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/code.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/code.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/element.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/element.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/flow.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/flow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/form.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/laydate.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/laydate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/layedit.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/layedit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/layer.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/layer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/laypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/laypage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/laytpl.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/laytpl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/mobile.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/mobile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/rate.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/rate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/table.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/tree.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/tree.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/upload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/lay/modules/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/layui.all.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/layui.all.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/layui.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HR-1.0-SNAPSHOT/plugins/layui/layui.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -111,6 +46,23 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="StaffInfoController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/StaffInfoController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="354">
+              <caret line="99" column="24" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#993#1009#0" expanded="true" />
+                <element signature="e#1789#1805#0" expanded="true" />
+                <element signature="e#2573#2589#0" expanded="true" />
+                <element signature="e#3793#3809#0" expanded="true" />
+                <element signature="e#4418#4434#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="JobTitleServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/service/impl/JobTitleServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -132,10 +84,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JobTitleController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JobTitleController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/JobTitleController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
+            <state relative-caret-position="551">
               <caret line="29" column="101" selection-start-line="29" selection-start-column="101" selection-end-line="29" selection-end-column="101" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -244,7 +196,7 @@
       <path value="$PROJECT_DIR$/src/main/webapp/vendors/iconfonts/mdi/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -523,12 +475,12 @@
       <workItem from="1544405043784" duration="13767000" />
       <workItem from="1544577840431" duration="12983000" />
       <workItem from="1544664354531" duration="15213000" />
-      <workItem from="1544700089259" duration="5825000" />
+      <workItem from="1544700089259" duration="6923000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81399000" />
+    <option name="totallyTimeSpent" value="82497000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -540,7 +492,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Event Log" order="15" sideWeight="0.5010661" side_tool="true" weight="0.32824427" />
@@ -854,21 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/StaffInfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1171">
-          <caret line="91" column="121" selection-start-line="91" selection-start-column="112" selection-end-line="91" selection-end-column="121" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#993#1009#0" expanded="true" />
-            <element signature="e#1789#1805#0" expanded="true" />
-            <element signature="e#2573#2589#0" expanded="true" />
-            <element signature="e#3793#3809#0" expanded="true" />
-            <element signature="e#4418#4434#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/entity/JobTitle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -918,10 +855,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/JobTitleController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
+        <state relative-caret-position="551">
           <caret line="29" column="101" selection-start-line="29" selection-start-column="101" selection-end-line="29" selection-end-column="101" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/StaffInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="99" column="24" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#993#1009#0" expanded="true" />
+            <element signature="e#1789#1805#0" expanded="true" />
+            <element signature="e#2573#2589#0" expanded="true" />
+            <element signature="e#3793#3809#0" expanded="true" />
+            <element signature="e#4418#4434#0" expanded="true" />
           </folding>
         </state>
       </provider>
