@@ -61,5 +61,12 @@ public class StaffInfoServiceImpl implements IStaffInfoService {
         return this.staffInfoDao.updateStaffInfoById(staffInfo);
     }
 
+    public Integer updateSubjectIdById(Integer id, Integer subjectId) {
+        Map<String, Object> req = new HashMap<String, Object>();
+        req.put("id", id);
+        req.put("subjectId", subjectId);
+        return this.staffInfoDao.updateSubjectIdById(req);
+    }
+
 }
 

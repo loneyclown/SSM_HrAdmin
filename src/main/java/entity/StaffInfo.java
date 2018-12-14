@@ -16,7 +16,7 @@ public class StaffInfo implements Serializable {
     private Integer jobId;
     private Integer departmentId;
     private Integer isTrain;
-    private String subjectId;
+    private Integer subjectId;
     private Integer staffType;
     private String passWord;
 

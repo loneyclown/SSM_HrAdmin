@@ -278,51 +278,17 @@
       },
       toolbar: "#toolbar",
       defaultToolbar: [],
-      cols: [
-        [ //表头
-          {
-            field: 'id',
-            title: 'ID',
-            width: 80,
-          }, {
-            field: 'staffName',
-            title: '员工姓名',
-            width: 120
-          }, {
-            field: 'staffSex',
-            title: '性别',
-            width: 80,
-            templet: "#staffSexTpl"
-          }, {
-            field: 'staffAge',
-            title: '年龄',
-            width: 80
-          }, {
-            field: 'phone',
-            title: '联系电话',
-            width: 150
-          }, {
-            field: 'entryTime',
-            title: '入职时间',
-            width: 120,
-            templet: "#entryTimeTpl"
-          }, {
-            field: 'departments',
-            title: '所在部门',
-            width: 140,
-            templet: "#departmentTpl"
-          }, {
-            field: 'jobId',
-            title: '所处职位',
-            width: 140,
-            templet: "#jobTitleTpl"
-          }, {
-            field: 'option',
-            title: '操作',
-            toolbar: "#colsToolbar"
-          }
-        ]
-      ]
+      cols: [[ //表头
+        { field: 'id', title: 'ID', width: 80 },
+        { field: 'staffName', title: '员工姓名', width: 120 },
+        { field: 'staffSex', title: '性别', width: 80, templet: "#staffSexTpl" }, 
+        { field: 'staffAge', title: '年龄', width: 80 }, 
+        { field: 'phone', title: '联系电话', width: 150 }, 
+        { field: 'entryTime', title: '入职时间', width: 120, templet: "#entryTimeTpl" }, 
+        { field: 'departments', title: '所在部门', width: 140, templet: "#departmentTpl" }, 
+        { field: 'jobId', title: '所处职位', width: 140, templet: "#jobTitleTpl" }, 
+        { field: 'option', title: '操作', toolbar: "#colsToolbar" }
+      ]]
     });
 
     //监听顶部工具条

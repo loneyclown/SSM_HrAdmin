@@ -291,6 +291,40 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "根据ID设置员工的培训项目",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/staffInfo/updateSubjectIdById?id=1&subjectId=7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"staffInfo",
+								"updateSubjectIdById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "subjectId",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -508,6 +542,260 @@
 								{
 									"key": "id",
 									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "培训项目信息",
+			"item": [
+				{
+					"name": "分页获取培训项目",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/subject/listSubjectByCurr?curr=1&limit=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"subject",
+								"listSubjectByCurr"
+							],
+							"query": [
+								{
+									"key": "curr",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加培训项目",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/subject/addSubject?subjectName=地方豆腐干&description=发生的广泛大概豆腐干了而感人的观看了地方地方如果&isFree=1&price=128.99&time=2018-12-30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"subject",
+								"addSubject"
+							],
+							"query": [
+								{
+									"key": "subjectName",
+									"value": "地方豆腐干"
+								},
+								{
+									"key": "description",
+									"value": "发生的广泛大概豆腐干了而感人的观看了地方地方如果"
+								},
+								{
+									"key": "isFree",
+									"value": "1"
+								},
+								{
+									"key": "price",
+									"value": "128.99"
+								},
+								{
+									"key": "time",
+									"value": "2018-12-30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除培训项目",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/subject/delSubjectById?id=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"subject",
+								"delSubjectById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据ID修改培训项目信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/subject/updateSubjectById?id=7&subjectName=地方豆腐干&description=发生的广泛大概豆腐干了而感人的观看了地方地方如果&isFree=1&price=128.99&time=2018-12-30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"subject",
+								"updateSubjectById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7"
+								},
+								{
+									"key": "subjectName",
+									"value": "地方豆腐干"
+								},
+								{
+									"key": "description",
+									"value": "发生的广泛大概豆腐干了而感人的观看了地方地方如果"
+								},
+								{
+									"key": "isFree",
+									"value": "1"
+								},
+								{
+									"key": "price",
+									"value": "128.99"
+								},
+								{
+									"key": "time",
+									"value": "2018-12-30"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "奖罚管理",
+			"item": [
+				{
+					"name": "分页获取奖罚记录",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/bonus/listAllBonusByCurr?curr=1&limit=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bonus",
+								"listAllBonusByCurr"
+							],
+							"query": [
+								{
+									"key": "curr",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加奖罚记录",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/bonus/addBonus?bonusLevel=2&description=奖励现金500元&content=表现优异&bonusTime=2018-12-15&staffId=7&bonusType=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bonus",
+								"addBonus"
+							],
+							"query": [
+								{
+									"key": "bonusLevel",
+									"value": "2"
+								},
+								{
+									"key": "description",
+									"value": "奖励现金500元"
+								},
+								{
+									"key": "content",
+									"value": "表现优异"
+								},
+								{
+									"key": "bonusTime",
+									"value": "2018-12-15"
+								},
+								{
+									"key": "staffId",
+									"value": "7"
+								},
+								{
+									"key": "bonusType",
+									"value": "0"
 								}
 							]
 						}

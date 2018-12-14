@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.ISubjectDao">
+    <resultMap id="subject" type="entity.Subject">
+        <id column="id" property="id"/>
+        <result column="subjectName" property="subjectName"/>
+        <result column="description" property="description"/>
+        <result column="isFree" property="isFree"/>
+        <result column="price" property="price"/>
+        <result column="time" property="time"/>
+        <collection property="staffInfos" ofType="entity.StaffInfo">
+            <id column="staffinfo_id" property="id"/>
+            <result column="staffName" property="staffName"/>
+            <result column="staffAge" property="staffAge"/>
+            <result column="staffSex" property="staffSex"/>
+            <result column="phone" property="phone"/>
+            <result column="entryTime" property="entryTime"/>
+            <result column="subjectId" property="subjectId"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectAllSubjectByCurr" parameterType="Map" resultMap="subject">
+        SELECT
+            *,
+            staffinfo.id AS staffinfo_id,
+            subject.id AS subject_id
+        FROM
+            subject
+        LEFT JOIN staffinfo ON staffinfo.subjectId = subject.id
+    </select>
+
+    <select id="selectCountSubjectALL" resultType="Integer">
+        SELECT count(*) AS total from subject
+    </select>
+
+    <insert id="insertSubject">
+        INSERT INTO
+            subject
+        (subjectName, description, isFree, price, time)
+        VALUES
+        (#{subjectName}, #{description}, #{isFree}, #{price}, #{time})
+    </insert>
+
+    <delete id="deleteSubjectById">
+        DELETE FROM subject WHERE id = #{id}
+    </delete>
+
+    <update id="updateSubjectById">
+        UPDATE subject
+        <trim prefix="set" suffixOverrides=",">
+            <if test="subjectName!=null">subjectName=#{subjectName},</if>
+            <if test="description!=null">description=#{description},</if>
+            <if test="isFree!=null">isFree=#{isFree},</if>
+            <if test="price!=null">price=#{price},</if>
+            <if test="time!=null">time=#{time},</if>
+        </trim>
+        WHERE id = #{id}
+    </update>
+
+
+
+</mapper>

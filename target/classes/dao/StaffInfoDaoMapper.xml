@@ -91,4 +91,10 @@
         WHERE id = #{id}
     </update>
 
+    <update id="updateSubjectIdById" parameterType="Map">
+        UPDATE staffinfo
+        SET subjectId = #{subjectId}
+        WHERE id = #{id}
+    </update>
+
 </mapper>

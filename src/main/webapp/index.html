@@ -54,12 +54,12 @@
                 <span class="availability-status online"></span>             
               </div>
               <div class="nav-profile-text">
-                <p class="mb-1 text-black">clown</p>
+                <p class="mb-1 text-black" cust-staffName>clown</p>
               </div>
             </a>
           </li>
           <li class="nav-item nav-logout d-none d-lg-block">
-            <a class="nav-link" href="#">
+            <a id="signOut" class="nav-link" href="#">
               <i class="mdi mdi-power"></i>
             </a>
           </li>
@@ -117,7 +117,7 @@
             </a>
             <div class="collapse" id="ui-training">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="#">培训项目</a></li>
+                <li class="nav-item"> <a class="nav-link" page="./pages/subject/subjectList.html" href="#">培训项目</a></li>
               </ul>
             </div>
           </li>
@@ -141,12 +141,11 @@
             </a>
             <div class="collapse" id="ui-bonus">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="#">奖励管理</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">处罚管理</a></li>
+                <li class="nav-item"> <a class="nav-link" page="./pages/bonus/bonusList.html" href="#">奖罚记录</a></li>
               </ul>
             </div>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-transferHistory" aria-expanded="false" aria-controls="ui-transferHistory">
               <span class="menu-title">人事调动</span>
               <i class="menu-arrow"></i>
@@ -157,13 +156,13 @@
                 <li class="nav-item"> <a class="nav-link" href="#">调动历史</a></li>
               </ul>
             </div>
-          </li>
+          </li> -->
         </ul>
       </nav>
       <div class="main-panel">
 
         <div class="content-wrapper">
-          <iframe id="iframe" src="./pages/department/departmentList.html" class="iframe" name="contentFrame"></iframe>
+          <iframe id="iframe" src="./pages/staff/staffList.html" class="iframe" name="contentFrame"></iframe>
         </div>
         <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
@@ -178,6 +177,7 @@
 </body>
 <script src="vendors/js/vendor.bundle.base.js"></script>
 <script src="vendors/js/vendor.bundle.addons.js"></script>
+<script src="./js/jquery.cookie.js"></script>
 <script src="./plugins/layui/layui.js"></script>
 <script>
   layui.use(["layer"], function() {
@@ -185,7 +185,7 @@
       $page = $("[page]"),
       $iframe = $("#iframe");
 
-    $.getJSON("http://localhost:8080/staffInfo/getStaffInfoById?id=1")
+    $.getJSON("http://localhost:8080/staffInfo/getStaffInfoById?id="+$.cookie("id"))
     .then(function(res) {
       if(res.is) {
         $("[cust-staffName]").html(res.staffInfo.staffName);
@@ -199,6 +199,12 @@
     $page.click(function() {
       // console.log($(this).attr("page"));
       $iframe.attr("src", $(this).attr("page"));
+    });
+
+    $("#signOut").click(function() {
+      var expires = new Date();
+      $.cookie("id", null, { expires: expires.setTime(expires.getTime() - 1000), path: '/' });
+      window.location.href = "./pages/default/login.html";
     });
     
   });

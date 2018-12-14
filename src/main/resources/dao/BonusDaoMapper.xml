@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.IBonusDao">
+    <resultMap id="bonus" type="entity.Bonus">
+        <id column="id" property="id"/>
+        <result column="bonusLevel" property="bonusLevel"/>
+        <result column="description" property="description"/>
+        <result column="content" property="content"/>
+        <result column="bonusTime" property="bonusTime"/>
+        <result column="bonusType" property="bonusType"/>
+        <result column="staffId" property="staffId"/>
+        <collection property="staffInfos" ofType="entity.StaffInfo">
+            <id column="staffinfo_id" property="id"/>
+            <result column="staffName" property="staffName"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectAllBonusByCurr" parameterType="Map" resultMap="bonus">
+        SELECT
+            *,
+            staffinfo.id AS staffinfo_id
+        FROM
+            bonus
+        LEFT JOIN staffinfo ON bonus.staffId = staffinfo.id
+        LIMIT #{start},#{size}
+    </select>
+
+    <select id="selectCountBonusALL" resultType="Integer">
+        SELECT count(*) AS total from bonus
+    </select>
+
+    <insert id="insertBonus">
+        INSERT INTO
+            bonus
+        (description, content, bonusTime, bonusType, staffId)
+        VALUES
+        (#{description}, #{content}, #{bonusTime}, #{bonusType}, #{staffId})
+    </insert>
+
+    <!--<delete id="deleteSubjectById">-->
+        <!--DELETE FROM subject WHERE id = #{id}-->
+    <!--</delete>-->
+
+    <!--<update id="updateSubjectById">-->
+        <!--UPDATE subject-->
+        <!--<trim prefix="set" suffixOverrides=",">-->
+            <!--<if test="subjectName!=null">subjectName=#{subjectName},</if>-->
+            <!--<if test="description!=null">description=#{description},</if>-->
+            <!--<if test="isFree!=null">isFree=#{isFree},</if>-->
+            <!--<if test="price!=null">price=#{price},</if>-->
+            <!--<if test="time!=null">time=#{time},</if>-->
+        <!--</trim>-->
+        <!--WHERE id = #{id}-->
+    <!--</update>-->
+
+
+
+</mapper>

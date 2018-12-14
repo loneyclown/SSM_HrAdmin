@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../plugins/layui/css/layui.css">
+
+  <style>
+    .table-box {
+      box-sizing: border-box;
+      padding: 40px;
+      background: #fff;
+    }
+    .layui-table-view {
+      box-sizing: border-box;
+      border: none;
+    }
+    .layui-table-header {
+      border: none;
+      background: #fff;
+    }
+    .layui-table-view .layui-table th, .layui-table-view .layui-table td {
+      box-sizing: border-box;
+      border-top: 0;
+      border-bottom-width: 1px;
+      font-family: "ubuntu-medium", sans-serif;
+      font-weight: bold;
+      vertical-align: bottom;
+      border: none;
+      border-bottom: 2px solid #ebedf2;
+      font-size: 0.875rem;
+      line-height: 1;
+      background: #fff;
+    }
+    .layui-table-view .layui-table td {
+      font-weight: normal;
+      border-bottom-width: 1px;
+    }
+    .layui-laypage .layui-laypage-curr .layui-laypage-em {
+      background-color: #198ae3;
+    }
+    .badge-danger {
+      border: 1px solid #198ae3;
+      background-color: #198ae3;
+      color: #ffffff;
+    }
+    .badge {
+      display: inline-block;
+      border-radius: .125rem;
+      font-size: 11px;
+      font-weight: initial;
+      line-height: 1;
+      padding: .375rem .5625rem;
+      font-family: "ubuntu-medium", sans-serif;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      cursor: pointer;
+    }
+    .badge:hover {
+      opacity: .8;
+    }
+    .layui-layer-btn .layui-layer-btn0 {
+      border-color: #1E9FFF;
+      background-color: #1E9FFF;
+      color: #fff!important;
+    }
+    .form-box {
+      padding: 20px 20px 0 20px;
+    }
+    .form-box .form-label {
+      box-sizing: border-box;
+      padding: 0;
+      height: 38px;
+      line-height: 38px;
+      text-align: right;
+    }
+    .form-box .form-input-box {
+      margin-bottom: 20px;
+      padding: 0 20px;
+    }
+    .form-box .layui-input:focus, .form-box .layui-textarea:focus {
+      color: #495057;
+      background-color: #fff;
+      border-color: #80bdff!important;
+      outline: 0;
+      box-shadow: 0 0 0 .5px rgba(0, 123, 255, 0.25);
+    }
+    .form-box .layui-form-onswitch {
+      border-color: #1E9FFF;
+      background-color: #1E9FFF;
+    }
+    .form-box .layui-form-radio>i:hover, .layui-form-radioed>i {
+      color: #1E9FFF;
+    }
+    .form-box .layui-form-select dl dd.layui-this {
+      background-color: #1E9FFF;
+    }
+    .layui-laydate td.layui-this {
+      background-color: #1E9FFF!important;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="table-box">
+    <table id="table" lay-filter="table"></table>
+  </div>
+
+  <div id="staffDataTableBox" style="display: none">
+    <table id="staffDataTable" lay-filter="staffDataTable"></table>
+  </div>
+</body>
+
+<script type="text/html" id="toolbar">
+  <label class="badge badge-danger" lay-event="add">奖罚员工</label>
+</script>
+<script type="text/html" id="colsToolbar">
+  <!-- <label class="badge badge-danger" lay-event="del">删除</label>
+  <label class="badge badge-danger" lay-event="edit">修改</label>
+  <label class="badge badge-danger" lay-event="view">查看参训员工</label> -->
+</script>
+<!-- <script type="text/html" id="isFreeTpl">
+  {{d.isFree==0?"是":"否"}}
+</script> -->
+<!-- <script type="text/html" id="priceTpl">
+  ￥{{d.price.toFixed(2)}}
+</script> -->
+<script type="text/html" id="bonusTimeTpl">
+  {{d.bonusTime.substr(0, 10)}}
+</script>
+<script type="text/html" id="staffTpl">
+  {{d.staffInfos[0].staffName}}
+</script>
+<script type="text/html" id="bonusTypeTpl">
+  {{d.bonusType==0?"奖励":"处罚"}}
+</script>
+
+
+
+<script type="text/html" id="staffDataTableToolbar">
+  <label class="badge badge-danger" lay-event="add">奖罚员工</label>
+</script>
+<script type="text/html" id="staffDataTableColsToolbar">
+  <label class="badge badge-danger" lay-event="del">取消培训</label>
+</script>
+<script type="text/html" id="entryTimeTpl">
+  {{d.entryTime.substr(0, 10)}}
+</script>
+
+<script src="../../vendors/js/vendor.bundle.base.js"></script>
+<script src="../../plugins/layui/layui.js"></script>
+<script>
+  layui.use(["layer", "table", "form", "laytpl", "laydate"], function () {
+    var table = layui.table,
+      layer = layui.layer,
+      form = layui.form,
+      laytpl = layui.laytpl,
+      laydate = layui.laydate;
+
+    var tpl = laytpl([
+      '<div id="addForm">',
+        '<div class="form-box">',
+          '<form class="layui-form" lay-filter="addForm">',
+            '{{# layui.each(d.rows, function(index, item) { }}',
+              '{{item}}',
+            '{{# }) }}',
+            '<button id="{{d.filter}}" lay-submit lay-filter="{{d.filter}}" style="display: none">提交</button>',
+            '<button id="{{d.resetFrom}}" type="reset" style="display: none"></button>',
+          '</form>',
+        '</div>',
+      '</div>',
+    ].join("")),
+      formItemTpl = laytpl([
+        '<div class="layui-row">',
+          '<div class="layui-col-md2">',
+            '<div class="form-label">{{d.label}}</div>',
+          '</div>',
+          '{{# if(d.type=="input") { }}',
+            '<div class="layui-col-md10">',
+              '<div class="form-input-box">',
+                '<input type="text" name="{{d.name}}" value="{{d.value||""}}" lay-verify="{{d.verify||""}}" placeholder="{{d.placeholder||d.label}}" autocomplete="off" class="layui-input form-control">',
+              '</div>',
+            '</div>',
+          '{{# } else if(d.type=="textarea") { }}',
+            '<div class="layui-col-md10">',
+              '<div class="form-input-box">',
+                '<textarea name="{{d.name}}"  lay-verify="{{d.verify||""}}" placeholder="{{d.placeholder||d.label}}" class="layui-textarea form-control">{{d.value||""}}</textarea>',
+              '</div>',
+            '</div>',
+          '{{# } else if(d.type=="radio"){ }}',
+            '<div class="layui-col-md10">',
+              '<div class="form-input-box">',
+                '{{# layui.each(d.data, function(index, item) { }}',
+                  '<input type="radio" name="{{d.name}}" value="{{item.value}}" title="{{item.title}}" {{item.checked?"checked":""}}>',
+                '{{# }) }}',
+              '</div>',
+            '</div>',
+          '{{# } else if(d.type=="switch"){ }}',
+            '<div class="layui-col-md10">',
+              '<div class="form-input-box">',
+                '<input type="checkbox" name="{{d.name}}" value="1" {{d.checked?"checked":""}} lay-skin="switch" lay-text="ON|OFF" lay-filter="{{d.filter||""}}">',
+              '</div>',
+            '</div>',
+          '{{# } else if(d.type=="date"){ }}',
+            '<div class="layui-col-md10">',
+              '<div class="form-input-box">',
+                '<input type="text" id="{{d.dataDomId}}" name="{{d.name}}" value="{{d.value||""}}" lay-verify="{{d.verify||""}}" placeholder="{{d.placeholder||d.label}}" class="layui-input form-control">',
+              '</div>',
+            '</div>',
+          '{{# } }}',
+        '</div>',
+      ].join(""));
+
+    var dataTable = table.render({
+      elem: '#table',
+      // height: 312,
+      url: 'http://localhost:8080/bonus/listAllBonusByCurr', //数据接口
+      request: {
+        pageName: "curr",
+        limitName: "limit"
+      },
+      page: true, //开启分页
+      response: {
+        statusName: "is",
+        statusCode: true,
+        // msgName
+        countName: "total",
+        dataName: "data"
+      },
+      toolbar: "#toolbar",
+      defaultToolbar: [],
+      cols: [
+        [ //表头
+        { field: 'id', title: 'ID', width: 80 },
+        { field: 'description', title: '奖罚说明', width: 200, templet: "#staffSexTpl" }, 
+        { field: 'content', title: '奖罚内容', width: 200 }, 
+        { field: 'bonusTime', title: '奖罚时间', width: 150, templet: "#bonusTimeTpl" }, 
+        { field: 'staffInfos', title: '奖罚员工', width: 120, templet: "#staffTpl" }, 
+        { field: 'bonusType', title: '奖罚类型', width: 140, templet: "#bonusTypeTpl" }
+        // { field: 'option', title: '操作', toolbar: "#colsToolbar" }
+        ]
+      ]
+    });
+
+    //监听顶部工具条
+    table.on('toolbar(table)', function (obj) {
+      if (obj.event === "add") {
+        var content=[
+          '<div>',
+            tpl.render({
+              rows: [
+                formItemTpl.render({ type: "input", label: "员工ID", name: "staffId", verify: "required" }),
+                formItemTpl.render({ type: "radio", label: "奖罚类型", name: "bonusType", data: [
+                  { value: "0", title: "奖励", checked: true },
+                  { value: "1", title: "处罚" }
+                ] }),
+                formItemTpl.render({ type: "textarea", label: "奖罚说明", name: "description", verify: "required" }),
+                formItemTpl.render({ type: "textarea", label: "奖罚内容", name: "content", verify: "required" }),
+                // formItemTpl.render({ type: "input", label: "培训价格", name: "price", value: "0.00" }),
+                formItemTpl.render({ type: "date", label: "奖罚时间", dataDomId: "bonusTime", name: "bonusTime", verify: "required", placeholder: "yyyy-MM-dd" })
+              ],
+              filter: "addBtn",
+              resetFrom: "resetFrom"
+            }),
+          '</div>'
+        ].join('');
+        layer.open({
+          type: 1,
+          title: "奖罚员工",
+          content: content,
+          area: ['600px', '600px'],
+          btn: ['提交', '取消'],
+          success: function (layero, thisLayer) {
+            laydate.render({
+              elem: '#bonusTime'
+            });
+            form.render();
+            form.on('submit(addBtn)', function(data){
+              $.post("http://localhost:8080/bonus/addBonus", data.field)
+              .then(function(res) {
+                if(res.is) {
+                  layer.msg(res.msg, {time: 1000, end: function() {dataTable.reload();layer.close(thisLayer)}});
+                } else {
+                  layer.msg("数据请求失败！");
+                }
+              })
+              return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+            });
+          },
+          yes: function() {
+            $("#addBtn").trigger("click");
+          }
+        });
+      }
+    });
+
+  });
+</script>
+
+</html>

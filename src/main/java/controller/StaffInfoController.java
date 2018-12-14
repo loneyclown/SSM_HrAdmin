@@ -143,4 +143,23 @@ public class StaffInfoController {
         }
         return map;
     }
+
+    @RequestMapping("/updateSubjectIdById")
+    public Map<String, Object> updateSubjectIdById(HttpServletRequest request, HttpServletResponse response, StaffInfo staffInfo) throws IOException {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("is", false);
+        Integer id = staffInfo.getId();
+        Integer subjectId = staffInfo.getSubjectId();
+        if(id==null) {
+            map.put("msg", "id不能为空");
+        } else if(subjectId==null) {
+            map.put("msg", "subjectId不能为空");
+        } else if(this.staffInfoService.updateSubjectIdById(id, subjectId) != -1){
+            map.put("is", true);
+            map.put("msg", "设置成功！");
+        } else {
+            map.put("msg", "设置失败！");
+        }
+        return map;
+    }
 }
