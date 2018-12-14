@@ -8,6 +8,8 @@ import java.util.Map;
 public interface IDepartmentDao {
     List<Department> selectAllDepartmentByCurr(Map<String, Object> map);
     Integer selectCountDeprecatedALL();
-
     List<Department> selectAllDepartment();
+    Integer insertDepartment(Department department);
+    Integer deleteDepartmentById(Integer id);
+
 }

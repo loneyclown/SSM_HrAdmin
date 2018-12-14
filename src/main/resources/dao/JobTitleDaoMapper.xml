@@ -14,4 +14,12 @@
         SELECT * from jobtitle WHERE departmentId = #{id}
     </select>
 
+    <insert id="insertJobTitle">
+        INSERT INTO jobtitle (jobName, departmentId) VALUES (#{jobName}, #{departmentId})
+    </insert>
+
+    <delete id="deleteJobTitleById">
+        DELETE FROM jobtitle WHERE id = #{id}
+    </delete>
+
 </mapper>

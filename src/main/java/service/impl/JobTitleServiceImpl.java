@@ -22,4 +22,12 @@ public class JobTitleServiceImpl implements IJobTitleService {
         }
         return map;
     }
+
+    public Integer addJobTitle(JobTitle jobTitle) {
+        return this.jobTitleDao.insertJobTitle(jobTitle);
+    }
+
+    public Integer delJobTitleById(Integer id) {
+        return this.jobTitleDao.deleteJobTitleById(id);
+    }
 }

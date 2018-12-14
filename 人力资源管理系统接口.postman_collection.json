@@ -221,6 +221,76 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "更新员工信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/staffInfo/updateStaffInfoById?id=16&staffName=小青&staffAge=23&staffSex=1&phone=17733333333&entryTime=2018-11-28&jobId=7&isTrain=0&subjectId=0&staffType=1&passWord=333",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"staffInfo",
+								"updateStaffInfoById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "16"
+								},
+								{
+									"key": "staffName",
+									"value": "小青"
+								},
+								{
+									"key": "staffAge",
+									"value": "23"
+								},
+								{
+									"key": "staffSex",
+									"value": "1"
+								},
+								{
+									"key": "phone",
+									"value": "17733333333"
+								},
+								{
+									"key": "entryTime",
+									"value": "2018-11-28"
+								},
+								{
+									"key": "jobId",
+									"value": "7"
+								},
+								{
+									"key": "isTrain",
+									"value": "0"
+								},
+								{
+									"key": "subjectId",
+									"value": "0"
+								},
+								{
+									"key": "staffType",
+									"value": "1"
+								},
+								{
+									"key": "passWord",
+									"value": "333"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -284,6 +354,66 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "添加部门",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/department/addDepartment?departmentName=科学部",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"department",
+								"addDepartment"
+							],
+							"query": [
+								{
+									"key": "departmentName",
+									"value": "科学部"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除部门",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/department/delDepartmentById?id=7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"department",
+								"delDepartmentById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -314,6 +444,70 @@
 								{
 									"key": "departmentId",
 									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据部门ID添加职称",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/jobTitle/addJobTitle?jobName=运营员&departmentId=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jobTitle",
+								"addJobTitle"
+							],
+							"query": [
+								{
+									"key": "jobName",
+									"value": "运营员"
+								},
+								{
+									"key": "departmentId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据ID删除职称",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/jobTitle/delJobTitleById?id=11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jobTitle",
+								"delJobTitleById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "11"
 								}
 							]
 						}

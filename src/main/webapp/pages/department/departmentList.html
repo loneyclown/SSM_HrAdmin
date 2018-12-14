@@ -40,30 +40,131 @@
       font-weight: normal;
       border-bottom-width: 1px;
     }
+    .layui-laypage .layui-laypage-curr .layui-laypage-em {
+      background-color: #198ae3;
+    }
+    .badge-danger {
+      border: 1px solid #198ae3;
+      background-color: #198ae3;
+      color: #ffffff;
+    }
+    .badge {
+      display: inline-block;
+      border-radius: .125rem;
+      font-size: 11px;
+      font-weight: initial;
+      line-height: 1;
+      padding: .375rem .5625rem;
+      font-family: "ubuntu-medium", sans-serif;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      cursor: pointer;
+    }
+    .badge:hover {
+      opacity: .8;
+    }
+    .layui-layer-btn .layui-layer-btn0 {
+      border-color: #1E9FFF;
+      background-color: #1E9FFF;
+      color: #fff!important;
+    }
+    .form-box {
+      padding: 20px 20px 0 20px;
+    }
+    .form-box .form-label {
+      box-sizing: border-box;
+      padding: 0;
+      height: 38px;
+      line-height: 38px;
+      text-align: right;
+    }
+    .form-box .form-input-box {
+      margin-bottom: 20px;
+      padding: 0 20px;
+    }
+    .form-box .layui-input:focus, .form-box .layui-textarea:focus {
+      color: #495057;
+      background-color: #fff;
+      border-color: #80bdff!important;
+      outline: 0;
+      box-shadow: 0 0 0 .5px rgba(0, 123, 255, 0.25);
+    }
+    .form-box .layui-form-onswitch {
+      border-color: #1E9FFF;
+      background-color: #1E9FFF;
+    }
+    .form-box .layui-form-radio>i:hover, .layui-form-radioed>i {
+      color: #1E9FFF;
+    }
+    .form-box .layui-form-select dl dd.layui-this {
+      background-color: #1E9FFF;
+    }
+    .layui-laydate td.layui-this {
+      background-color: #1E9FFF!important;
+    }
   </style>
 
 </head>
 
 <body>
   <div class="table-box">
-    <table id="table"></table>
+    <table id="table" lay-filter="table"></table>
+  </div>
+
+  <div id="jobDataTableBox" style="display: none">
+    <table id="jobDataTable" lay-filter="jobDataTable"></table>
   </div>
 </body>
 
-<script type="text/html" id="departmentTpl">
-  {{d.departments[0].departmentName}}
+<script type="text/html" id="toolbar">
+  <label class="badge badge-danger" lay-event="add">添加部门</label>
+</script>
+<script type="text/html" id="jobDataTableToolbar">
+  <label class="badge badge-danger" lay-event="add">添加职称</label>
 </script>
 
-<script type="text/html" id="jobTitleTpl">
-  {{d.departments[0].jobTitles[0].jobName}}
+
+<script type="text/html" id="colsToolbar">
+  <label class="badge badge-danger" lay-event="del">删除</label>
+  <label class="badge badge-danger" lay-event="view">查看</label>
+</script>
+<script type="text/html" id="jobDataTableColsToolbar">
+  <label class="badge badge-danger" lay-event="del">删除</label>
+  <!-- <label class="badge badge-danger" lay-event="view">查看</label> -->
 </script>
 
+<script src="../../vendors/js/vendor.bundle.base.js"></script>
 <script src="../../plugins/layui/layui.js"></script>
 <script>
-  layui.use(["layer", "table"], function () {
-    var table = layui.table;
+  layui.use(["layer", "table", "form", "laytpl"], function () {
+    var table = layui.table,
+      layer = layui.layer,
+      form = layui.form,
+      laytpl = layui.laytpl;
 
-    table.render({
+    var tpl = laytpl([
+      '<div id="addForm">',
+        '<div class="form-box">',
+          '<form class="layui-form" lay-filter="addForm">',
+            '<div class="layui-row">',
+              '<div class="layui-col-md2">',
+                '<div class="form-label">{{d.label}}</div>',
+              '</div>',
+              '<div class="layui-col-md10">',
+                '<div class="form-input-box">',
+                  '<input type="text" name="{{d.name}}" required="" lay-verify="required" placeholder="{{d.label}}" autocomplete="off" class="layui-input form-control">',
+                '</div>',
+              '</div>',
+            '</div>',
+            '<button id="addBtn" lay-submit lay-filter="{{d.filter}}" style="display: none">提交</button>',
+            '<button id="resetFrom" type="reset" style="display: none"></button>',
+          '</form>',
+        '</div>',
+      '</div>',
+    ].join(""));
+
+    var dataTable = table.render({
       elem: '#table',
       // height: 312,
       url: 'http://localhost:8080/department/listDepartmentByCurr', //数据接口
@@ -79,6 +180,8 @@
         countName: "total",
         dataName: "data"
       },
+      toolbar: "#toolbar",
+      defaultToolbar: [],
       cols: [
         [ //表头
           {
@@ -92,22 +195,162 @@
           }, {
             field: 'option',
             title: '操作',
+            toolbar: "#colsToolbar"
           }
         ]
-      ],
-      // data: [
-      //   {
-      //     id: 1,
-      //     staffName: "1",
-      //     staffSex: "1",
-      //     staffAge: "1",
-      //     phone: "1",
-      //     entryTime: "1",
-      //     departmentId: "1",
-      //     jobId: "1"
-      //   }
-      // ]
+      ]
     });
+
+    //监听顶部工具条
+    table.on('toolbar(table)', function (obj) {
+      
+      if (obj.event === "add") {
+        var content=[
+          '<div>',
+            tpl.render({ label: "部门名称", name: "departmentName", filter: "addBtn" }),
+          '</div>'
+        ].join('');
+        layer.open({
+          type: 1,
+          title: "添加部门",
+          content: content,
+          area: ['500px', '200px'],
+          btn: ['提交', '取消'],
+          success: function (layero, thisLayer) {
+            
+            form.on('submit(addBtn)', function(data){
+              $.post("http://localhost:8080/department/addDepartment", data.field)
+              .then(function(res) {
+                if(res.is) {
+                  layer.msg(res.msg, {time: 1000, end: function() {dataTable.reload();layer.close(thisLayer)}});
+                } else {
+                  layer.msg("数据请求失败！");
+                }
+              })
+              return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+            });
+          },
+          yes: function() {
+            $("#addBtn").trigger("click");
+          }
+        });
+      }
+    });
+
+    //监听工具条
+    table.on('tool(table)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+      var data = obj.data; //获得当前行数据
+      var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+      var tr = obj.tr; //获得当前行 tr 的DOM对象
+
+      if (layEvent === 'del') {
+        layer.confirm('确定要删除该部门吗？', function (index) {
+          $.getJSON("http://localhost:8080/department/delDepartmentById?id=" + data.id)
+            .then(function (res) {
+              if (res.is) {
+                layer.msg("删除成功！");
+                dataTable.reload();
+              } else {
+                layer.msg("数据请求失败！");
+              }
+            })
+        });
+      } else if (layEvent === 'view') {
+        layer.open({
+          type: 1,
+          title: "部门职称",
+          content: $("#jobDataTableBox"),
+          area: ['500px', '500px'],
+          success: function (layero, thisLayer) {
+            var jobDataTable = table.render({
+              elem: '#jobDataTable',
+              url: 'http://localhost:8080/jobTitle/listJobTitleByDepartmentId?departmentId=' + data.id, //数据接口
+              response: {
+                statusName: "is",
+                statusCode: true,
+                // msgName
+                countName: "total",
+                dataName: "data"
+              },
+              toolbar: "#jobDataTableToolbar",
+              defaultToolbar: [],
+              cols: [
+                [ //表头
+                  {
+                    field: 'id',
+                    title: 'ID',
+                    width: 80,
+                  }, {
+                    field: 'jobName',
+                    title: '部门名称',
+                    width: 120
+                  }, {
+                    field: 'option',
+                    title: '操作',
+                    toolbar: "#jobDataTableColsToolbar"
+                  }
+                ]
+              ]
+            });
+            //监听顶部工具条
+            table.on('toolbar(jobDataTable)', function (obj) {
+              if (obj.event === "add") {
+                var content=[
+                  '<div>',
+                    tpl.render({ label: "职称名称", name: "jobName", filter: "addBtn2" }),
+                  '</div>'
+                ].join('');
+                layer.open({
+                  type: 1,
+                  title: "添加职称",
+                  content: content,
+                  area: ['400px', '200px'],
+                  btn: ['提交', '取消'],
+                  success: function (layero, thisLayer) {
+                    form.on('submit(addBtn2)', function(fromData){
+                      console.log(fromData.field);
+                      fromData.field.departmentId = data.id;
+                      $.post("http://localhost:8080/jobTitle/addJobTitle", fromData.field)
+                      .then(function(res) {
+                        if(res.is) {
+                          layer.msg(res.msg, {time: 1000, end: function() {jobDataTable.reload();layer.close(thisLayer)}});
+                        } else {
+                          layer.msg("数据请求失败！");
+                        }
+                      })
+                      return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+                    });
+                  },
+                  yes: function() {
+                    $("#addBtn").trigger("click");
+                  }
+                });
+              }
+            });
+            table.on('tool(jobDataTable)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+              var data = obj.data; //获得当前行数据
+              var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+              var tr = obj.tr; //获得当前行 tr 的DOM对象
+
+              if (layEvent === 'del') {
+                layer.confirm('确定要删除该职称吗？', function (index) {
+                  $.getJSON("http://localhost:8080/jobTitle/delJobTitleById?id=" + data.id)
+                    .then(function (res) {
+                      if (res.is) {
+                        layer.msg("删除成功！");
+                        jobDataTable.reload();
+                      } else {
+                        layer.msg("数据请求失败！");
+                      }
+                    })
+                });
+              }
+            });
+          }
+        });
+      }
+    });
+
   });
 </script>
 

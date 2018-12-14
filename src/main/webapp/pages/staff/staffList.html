@@ -119,7 +119,7 @@
 
   <div id="addForm" style="display: none">
     <div class="form-box">
-      <form class="layui-form">
+      <form class="layui-form" lay-filter="addForm">
         <div class="layui-row">
           <div class="layui-col-md2">
             <div class="form-label">员工姓名</div>
@@ -144,8 +144,8 @@
           </div>
           <div class="layui-col-md5">
             <div class="form-input-box">
-              <input type="radio" name="staffSex" value="0" title="男">
-              <input type="radio" name="staffSex" value="1" title="女" checked>
+              <input type="radio" name="staffSex" value="0" title="男" checked>
+              <input type="radio" name="staffSex" value="1" title="女">
             </div>
           </div>
         </div>
@@ -165,7 +165,7 @@
           </div>
           <div class="layui-col-md10">
             <div class="form-input-box">
-              <input type="text" id="entryTime" name="entryTime" required="" lay-verify="date" placeholder="入职时间" autocomplete="off" class="layui-input form-control">
+              <input type="text" id="entryTime" name="entryTime" required="" lay-verify="date" placeholder="入职时间" class="layui-input form-control">
             </div>
           </div>
         </div>
@@ -175,7 +175,7 @@
           </div>
           <div class="layui-col-md4">
             <div class="form-input-box">
-              <select id="departmentList" lay-filter="departmentList" lay-verify="">
+              <select id="departmentList" name="departmentId" lay-filter="departmentList" lay-verify="">
                 <option value="">请选择部门</option>
                 <option value="010">北京</option>
                 <option value="021">上海</option>
@@ -210,11 +210,12 @@
           </div>
           <div class="layui-col-md10">
             <div class="form-input-box">
-              <input type="text" name="passWord" lay-verify="" placeholder="登录密码" autocomplete="off" class="layui-input form-control">
+              <input type="password" name="passWord" lay-verify="" placeholder="登录密码" autocomplete="off" class="layui-input form-control">
             </div>
           </div>
         </div>
         <button id="addBtn" lay-submit lay-filter="addBtn" style="display: none">提交</button>
+        <button id="resetFrom" type="reset" style="display: none">提交</button>
       </form>
     </div>
   </div>
@@ -222,7 +223,7 @@
 
 
 <script type="text/html" id="toolbar">
-  <label class="badge badge-danger" lay-event="add">添加</label>
+  <label class="badge badge-danger" lay-event="add">添加员工</label>
   <!-- <label class="badge badge-danger">编辑</label> -->
 </script>
 
@@ -321,28 +322,16 @@
             toolbar: "#colsToolbar"
           }
         ]
-      ],
-      // data: [
-      //   {
-      //     id: 1,
-      //     staffName: "1",
-      //     staffSex: "1",
-      //     staffAge: "1",
-      //     phone: "1",
-      //     entryTime: "1",
-      //     departmentId: "1",
-      //     jobId: "1"
-      //   }
-      // ]
+      ]
     });
 
     //监听顶部工具条
     table.on('toolbar(table)', function (obj) {
-      console.log(obj);
+      // console.log(obj);
       
       var checkStatus = table.checkStatus(obj.config.id);
       if (obj.event === "add") {
-        addOpenFrom(obj);
+        addOpenFrom(0);
       }
     });
 
@@ -354,7 +343,7 @@
 
       if (layEvent === 'del') { //查看
         layer.confirm('确定要删除该员工信息吗？', function (index) {
-          console.log(data);
+          // console.log(data);
           $.getJSON("http://localhost:8080/staffInfo/delStaffInfo?id=" + data.id)
             .then(function (res) {
               if (res.is) {
@@ -374,7 +363,7 @@
         });
       } else if (layEvent === 'edit') { //编辑
         //do something
-
+        addOpenFrom(1, data);
         //同步更新缓存对应的值
         // obj.update({
         //   username: '123',
@@ -383,19 +372,45 @@
       }
     });
 
-    function addOpenFrom(obj) {
+    function addOpenFrom(type, thisRowData) {
+      var submitUrls = ["http://localhost:8080/staffInfo/addStaffInfo", "http://localhost:8080/staffInfo/updateStaffInfoById"],
+        titles = ["添加员工", "修改员工信息"];
       layer.open({
         type: 1,
-        title: "添加员工",
+        title: titles[type],
         content: $("#addForm"),
         area: ['500px', '600px'],
         btn: ['提交', '取消'],
         success: function (layero, thisLayer) {
           laydate.render({
-            elem: '#entryTime' //指定元素
+            elem: '#entryTime'
           });
+          if(type === 1) {
+            console.log(thisRowData);
+            $('#resetFrom').trigger("click");
+            form.val("addForm", {
+              staffName: thisRowData.staffName,
+              staffAge: thisRowData.staffAge,
+              phone: thisRowData.phone,
+              entryTime: thisRowData.entryTime.substr(0, 10),
+              passWord: thisRowData.passWord
+            });
+            $("[name=staffSex][value="+thisRowData.staffSex+"]").prop("checked", true);
+            $("[name=staffType]").prop("checked", thisRowData.staffType===1);
+            $("#passWordRow").css("display", thisRowData.staffType===1?"block":"none");
+            form.render();
+            listDepartment(thisRowData.departmentId)
+            .then(function() {
+              listJobTitleByDepartmentId(thisRowData.departmentId, thisRowData.jobId);
+            })
+          } else {
+            $('#resetFrom').trigger("click");
+            $("#passWordRow").hide();
+            listDepartment();
+          }
 
-          $.getJSON("http://localhost:8080/department/listDepartment")
+          function listDepartment(val) {
+            return $.getJSON("http://localhost:8080/department/listDepartment")
             .then(function (res) {
               if (res.is) {
                 $('#departmentList').html("");
@@ -403,11 +418,30 @@
                 layui.each(res.data, function (index, item) {
                   $("#departmentList").append('<option value="' + item.id + '">' + item.departmentName + '</option>');
                 });
+                $('#departmentList').val(val);
                 form.render("select");
               } else {
                 layer.msg("数据请求失败！");
               }
             });
+          }
+          function listJobTitleByDepartmentId(departmentId, jobId) {
+            return $.getJSON("http://localhost:8080/jobTitle/listJobTitleByDepartmentId?departmentId="+departmentId)
+            .then(function(res) {
+              if(res.is) {
+                $('#jobTitleList').html("");
+                $("#jobTitleList").append('<option value="">请选择职位</option>');
+                layui.each(res.data, function (index, item) {
+                  $("#jobTitleList").append('<option value="' + item.id + '">' + item.jobName + '</option>');
+                });
+                $('#jobTitleList').val(jobId);
+                form.render("select");
+              } else {
+                layer.msg("数据请求失败！");
+              }
+            })
+          }
+          
 
           form.on('select(departmentList)', function (data) {
             if(!data.value) {
@@ -416,19 +450,7 @@
               form.render("select");
               return;
             };
-            $.getJSON("http://localhost:8080/jobTitle/listJobTitleByDepartmentId?departmentId="+data.value)
-            .then(function(res) {
-              if(res.is) {
-                $('#jobTitleList').html("");
-                $("#jobTitleList").append('<option value="">请选择职位</option>');
-                layui.each(res.data, function (index, item) {
-                  $("#jobTitleList").append('<option value="' + item.id + '">' + item.jobName + '</option>');
-                });
-                form.render("select");
-              } else {
-                layer.msg("数据请求失败！");
-              }
-            })
+            listJobTitleByDepartmentId(data.value);
           });
           form.on('switch(isTrain)', function(data){
             if(data.elem.checked) {
@@ -438,7 +460,8 @@
             }
           });
           form.on('submit(addBtn)', function(data){
-            $.post("http://localhost:8080/staffInfo/addStaffInfo", data.field)
+            if(type === 1) data.field.id = thisRowData.id;
+            $.post(submitUrls[type], data.field)
             .then(function(res) {
               if(res.is) {
                 layer.msg(res.msg, {time: 1000, end: function() {dataTable.reload();layer.close(thisLayer)}});

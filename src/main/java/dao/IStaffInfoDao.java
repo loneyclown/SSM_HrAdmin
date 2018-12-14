@@ -11,4 +11,6 @@ public interface IStaffInfoDao {
     Integer selectCountStaffInfoALL();
     Integer insertStaffInfo(StaffInfo staffInfo);
     Integer deleteStaffInfoById(Integer id);
+
+    Integer updateStaffInfoById(StaffInfo staffInfo);
 }

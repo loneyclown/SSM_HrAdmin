@@ -24,9 +24,6 @@ public class DepartmentServiceImpl implements IDepartmentService {
         req.put("size", size);
         List<Department> list = this.departmentDao.selectAllDepartmentByCurr(req);
         Integer total = this.departmentDao.selectCountDeprecatedALL();
-        for (int i = 0; i<list.size(); i++) {
-            System.out.println(list.get(i));
-        }
         if(list != null) {
             map.put("count",list.size() );
             map.put("list", list);
@@ -42,5 +39,13 @@ public class DepartmentServiceImpl implements IDepartmentService {
             map.put("list", list);
         }
         return map;
+    }
+
+    public Integer addDepartment(Department department) {
+        return this.departmentDao.insertDepartment(department);
+    }
+
+    public Integer delDepartmentById(Integer id) {
+        return this.departmentDao.deleteDepartmentById(id);
     }
 }

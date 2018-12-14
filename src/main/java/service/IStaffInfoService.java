@@ -10,4 +10,7 @@ public interface IStaffInfoService {
     Map<String, Object> listStaffInfoByCurr(Integer curr, Integer limit);
     Integer addStaffInfo(StaffInfo staffInfo);
     Integer delStaffInfo(Integer id);
+
+    Integer updateStaffInfoById(StaffInfo staffInfo);
+
 }

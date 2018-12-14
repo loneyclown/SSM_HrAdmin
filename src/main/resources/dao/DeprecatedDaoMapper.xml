@@ -31,6 +31,12 @@
         SELECT * from department
     </select>
 
+    <insert id="insertDepartment">
+        INSERT INTO department (departmentName) VALUES (#{departmentName})
+    </insert>
 
+    <delete id="deleteDepartmentById">
+        DELETE FROM department WHERE id = #{id}
+    </delete>
 
 </mapper>

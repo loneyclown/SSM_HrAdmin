@@ -120,4 +120,27 @@ public class StaffInfoController {
         }
         return map;
     }
+
+    @RequestMapping("/updateStaffInfoById")
+    public Map<String, Object> updateStaffInfoById(HttpServletRequest request, HttpServletResponse response, StaffInfo staffInfo) throws IOException {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("is", false);
+        Integer id = staffInfo.getId();
+        String staffName = staffInfo.getStaffName();
+        String entryTime = staffInfo.getEntryTime();
+
+        if(id == null) {
+            map.put("msg", "id不能为空");
+        } else if(staffName == null||staffName.equals("")) {
+            map.put("msg", "staffName不能为空");
+        } else if(entryTime == null||entryTime.equals("")) {
+            map.put("msg", "entryTime不能为空");
+        } else if(this.staffInfoService.updateStaffInfoById(staffInfo) != -1){
+            map.put("is", true);
+            map.put("msg", "员工资料更新成功！");
+        } else {
+            map.put("msg", "员工资料更新失败！");
+        }
+        return map;
+    }
 }

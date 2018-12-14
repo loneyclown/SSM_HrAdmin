@@ -12,6 +12,7 @@
         <result column="phone" property="phone"/>
         <result column="entryTime" property="entryTime"/>
         <result column="jobId" property="jobId"/>
+        <result column="departmentId" property="departmentId"/>
         <result column="isTrain" property="isTrain"/>
         <result column="subjectId" property="subjectId"/>
         <result column="staffType" property="staffType"/>
@@ -63,13 +64,31 @@
 
     <insert id="insertStaffInfo">
         INSERT INTO staffinfo
-        (staffName, staffAge, staffSex, phone, entryTime, jobId, isTrain, subjectId, staffType, passWord)
+            (staffName, staffAge, staffSex, phone, entryTime, jobId, departmentId, isTrain, subjectId, staffType, passWord)
         VALUES
-        (#{staffName}, #{staffAge}, #{staffSex}, #{phone}, #{entryTime}, #{jobId}, #{isTrain}, #{subjectId}, #{staffType}, #{passWord})
+            (#{staffName}, #{staffAge}, #{staffSex}, #{phone}, #{entryTime}, #{jobId}, #{departmentId}, #{isTrain}, #{subjectId}, #{staffType}, #{passWord})
     </insert>
     
     <delete id="deleteStaffInfoById">
         DELETE FROM staffinfo WHERE id = #{id}
     </delete>
+
+    <update id="updateStaffInfoById">
+        UPDATE staffinfo
+            <trim prefix="set" suffixOverrides=",">
+                <if test="staffName!=null">staffName=#{staffName},</if>
+                <if test="staffAge!=null">staffAge=#{staffAge},</if>
+                <if test="staffSex!=null">staffSex=#{staffSex},</if>
+                <if test="phone!=null">phone=#{phone},</if>
+                <if test="entryTime!=null">entryTime=#{entryTime},</if>
+                <if test="jobId!=null">jobId=#{jobId},</if>
+                <if test="departmentId!=null">departmentId=#{departmentId},</if>
+                <if test="isTrain!=null">isTrain=#{isTrain},</if>
+                <if test="subjectId!=null">subjectId=#{subjectId},</if>
+                <if test="staffType!=null">staffType=#{staffType},</if>
+                <if test="passWord!=null">passWord=#{passWord},</if>
+            </trim>
+        WHERE id = #{id}
+    </update>
 
 </mapper>

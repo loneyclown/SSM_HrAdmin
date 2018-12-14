@@ -57,5 +57,9 @@ public class StaffInfoServiceImpl implements IStaffInfoService {
         return this.staffInfoDao.deleteStaffInfoById(id);
     }
 
+    public Integer updateStaffInfoById(StaffInfo staffInfo) {
+        return this.staffInfoDao.updateStaffInfoById(staffInfo);
+    }
+
 }
 

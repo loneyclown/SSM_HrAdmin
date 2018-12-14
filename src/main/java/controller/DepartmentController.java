@@ -1,5 +1,6 @@
 package controller;
 
+import entity.Department;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -52,4 +53,37 @@ public class DepartmentController {
         map.put("data", res.get("list"));
         return map;
     }
+
+    @RequestMapping("/addDepartment")
+    public Map<String, Object> addDepartment(HttpServletRequest request, HttpServletResponse response, Department department) throws IOException {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("is", false);
+        String departmentName = department.getDepartmentName();
+        if(departmentName == null || departmentName.equals("")) {
+            map.put("msg", "departmentName不能为空！");
+        } else if(this.departmentService.addDepartment(department) != -1) {
+            map.put("is", true);
+            map.put("msg", "添加成功！");
+        } else {
+            map.put("msg", "添加失败！");
+        }
+        return map;
+    }
+
+    @RequestMapping("/delDepartmentById")
+    public Map<String, Object> delDepartmentById(HttpServletRequest request, HttpServletResponse response, Department department) throws IOException {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("is", false);
+        Integer id = department.getId();
+        if(id == null) {
+            map.put("msg", "id不能为空！");
+        } else if(this.departmentService.delDepartmentById(id) != -1) {
+            map.put("is", true);
+            map.put("msg", "删除成功！");
+        } else {
+            map.put("msg", "删除失败！");
+        }
+        return map;
+    }
+
 }
